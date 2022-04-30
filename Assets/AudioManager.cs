@@ -62,4 +62,16 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("p"))
+        {
+            Play();
+        }
+        if (Input.GetKeyDown("s"))
+        {
+            Stop();
+        }
+    }
 }

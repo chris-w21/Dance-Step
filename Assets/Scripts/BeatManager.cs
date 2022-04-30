@@ -30,7 +30,7 @@ public class BeatManager : AudioManager
 
     private void Start()
     {
-        base.Play();
+        //base.Play();
     }
 
     public void Pause()
@@ -263,7 +263,6 @@ public class BeatManager : AudioManager
                         {
                             IEnumerator IE = Play(BeatManager.bpm, notes[i].enabled, notes.Length, clip, source, (float)i, division);
                             caller.StartCoroutine(IE);
-                            caller.StartCoroutine(notes[i].a());
                         }
                     }
                 }
@@ -296,16 +295,6 @@ public class BeatManager : AudioManager
     [Serializable]
     public struct Note
     {
-        [HideInInspector] public bool played;
         [HideInInspector] public bool enabled;
-
-        public IEnumerator a()
-        {
-            played = true;
-            yield return new WaitForSecondsRealtime(1f);
-            played = false;
-            Debug.Log(played);
-            yield break;
-        }
     }
 }
