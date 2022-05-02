@@ -9,6 +9,8 @@ public class AudioManager : MonoBehaviour
 
     private static BeatManager beatManager;
 
+    private static StepsManager stepsManager;
+
     public static BeatManager.BeatBaseLine[] beatLines
     {
         get
@@ -38,6 +40,18 @@ public class AudioManager : MonoBehaviour
                 beatManager = FindObjectOfType<BeatManager>();
             }
             return beatManager;
+        }
+    }
+
+    public static StepsManager StepsManager
+    {
+        get
+        {
+            if (stepsManager == null)
+            {
+                stepsManager = FindObjectOfType<StepsManager>();
+            }
+            return stepsManager;
         }
     }
 

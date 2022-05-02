@@ -10,7 +10,7 @@ public class Step : MonoBehaviour
 
     public Material stepFull, stepHalf;
 
-    [SerializeField] private State state;
+    private State state;
 
     public State StepState
     {

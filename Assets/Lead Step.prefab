@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9211546228995821810}
   - component: {fileID: 9211546228995821811}
   m_Layer: 0
-  m_Name: Left Step
+  m_Name: Lead Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
