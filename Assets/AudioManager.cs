@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
+using Unity.Burst;
 
 public class AudioManager : MonoBehaviour
 {
@@ -55,8 +55,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    [BurstCompile]
     public void Play()
     {
+        StartCoroutine(StepsManager.PlayLead());
+        StartCoroutine(StepsManager.PlayFollow());
         for (int i = 0; i < beatLines.Length; i++)
         {
             for (int j = 0; j < beatLines[i].beats.Length; j++)
@@ -66,6 +69,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    [BurstCompile]
     private void Stop()
     {
         for (int i = 0; i < beatLines.Length; i++)
@@ -74,18 +78,6 @@ public class AudioManager : MonoBehaviour
             {
                 beatLines[i].beats[j].Stop();
             }
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown("p"))
-        {
-            Play();
-        }
-        if (Input.GetKeyDown("s"))
-        {
-            Stop();
         }
     }
 }

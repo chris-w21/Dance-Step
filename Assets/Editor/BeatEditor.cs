@@ -13,7 +13,7 @@ Editor
 #endif
 {
 #if UNITY_EDITOR
-    private Vector2 scrollPosition = new Vector2();
+    private Vector2 scrollPosition = new Vector2(), scroll2 = new Vector2();
 
     private AudioClip clip;
 
@@ -26,27 +26,69 @@ Editor
     {
         base.DrawDefaultInspector();
     }
-    Vector3 a = Vector3.zero;
+
     private void OnSceneGUI()
     {
         BeatManager beatManager = (BeatManager)target;
         bool HasFocus = false;
-        for (int i = 0; i < BeatManager.StepsManager.leadSteps.Count; i++)
+        for (int i = 0; i < StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps.Count; i++)
         {
-            if (BeatManager.StepsManager.leadSteps[i].window != null)
+            if (StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[i].window != null && StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[i].enabled)
             {
-                if (BeatManager.StepsManager.leadSteps[i].window.hasFocus)
+                if (StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[i].window.hasFocus)
                 {
+                    var a = StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[i].renderer.transform.position;
+                    var b = StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[i].renderer.transform.rotation;
                     HasFocus = true;
-                    var a = BeatManager.StepsManager.leadSteps[i].renderer.transform.position;
-                    var b = BeatManager.StepsManager.leadSteps[i].renderer.transform.rotation;
-                    Handles.TransformHandle(ref a,ref b);
-                    if (a != BeatManager.StepsManager.leadSteps[i].renderer.transform.position || b != BeatManager.StepsManager.leadSteps[i].renderer.transform.rotation)
+                    Handles.TransformHandle(ref a, ref b);
+                    StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[i].renderer.transform.rotation = b;
+                    StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[i].renderer.transform.position = a;
+                    GUILayout.BeginScrollView(scroll2);
+                    if (GUILayout.Button("Reset"))
                     {
-                        Undo.RecordObject(BeatManager.StepsManager, "Move" + "Step " + i.ToString());
+                        StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[i].renderer.transform.position = Vector3.zero + Vector3.up * 0.015f;
+                        StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[i].renderer.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+                        for (int j = 0; j < 2; j++)
+                        {
+                            StepsManager.LeftStep step = StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[i];
+                            SceneView sceneView = EditorWindow.GetWindow<SceneView>(false, i.ToString());
+                            sceneView.pivot = step.renderer.transform.position + Vector3.up * 10f;
+                            sceneView.camera.transform.position = step.renderer.transform.position + Vector3.up * 10f;
+                            sceneView.rotation = Quaternion.LookRotation(step.renderer.transform.position - sceneView.pivot, sceneView.camera.transform.up);
+                        }
                     }
-                    BeatManager.StepsManager.leadSteps[i].renderer.transform.position = a;
-                    BeatManager.StepsManager.leadSteps[i].renderer.transform.rotation = b;
+                    GUILayout.EndScrollView();
+                }
+            }
+        }
+
+        for (int i = 0; i < StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count; i++)
+        {
+            if (StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[i].window != null && StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[i].enabled)
+            {
+                if (StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[i].window.hasFocus)
+                {
+                    var a = StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[i].renderer.transform.position;
+                    var b = StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[i].renderer.transform.rotation;
+                    HasFocus = true;
+                    Handles.TransformHandle(ref a, ref b);
+                    StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[i].renderer.transform.rotation = b;
+                    StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[i].renderer.transform.position = a;
+                    GUILayout.BeginScrollView(scroll2);
+                    if (GUILayout.Button("Reset"))
+                    {
+                        StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[i].renderer.transform.position = Vector3.zero + Vector3.up * 0.015f;
+                        StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[i].renderer.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+                        for (int j = 0; j < 2; j++)
+                        {
+                            StepsManager.RightStep step = StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[i];
+                            SceneView sceneView = EditorWindow.GetWindow<SceneView>(false, i.ToString());
+                            sceneView.pivot = step.renderer.transform.position + Vector3.up * 10f;
+                            sceneView.camera.transform.position = step.renderer.transform.position + Vector3.up * 10f;
+                            sceneView.rotation = Quaternion.LookRotation(step.renderer.transform.position - sceneView.pivot, sceneView.camera.transform.up);
+                        }
+                    }
+                    GUILayout.EndScrollView();
                 }
             }
         }
@@ -60,7 +102,6 @@ Editor
         {
             beatManager.AddBeatBaseLine();
         }
-        // Set the colour of the next handle to be drawn:
 
         if (beatManager.beatbaseLines.Length != 0)
         {
@@ -131,98 +172,112 @@ Editor
                         GUILayout.EndHorizontal();
                     }
 
+                    #region LeadSteps
                     GUILayout.BeginHorizontal(EditorStyles.helpBox);
                     GUILayout.BeginVertical();
                     GUILayout.Label("Lead");
                     if (GUILayout.Button("Add Steps", GUILayout.Width(100f)))
                     {
-                        int count = BeatManager.StepsManager.leadSteps.Count;
+                        int count = StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps.Count;
                         for (int i = 0; i < count; i++)
                         {
-                            BeatManager.StepsManager.leadSteps.Add(new StepsManager.Step() { type = StepsManager.Type.Follow});
+                            StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps.Add(new StepsManager.LeftStep());
                         }
                     }
                     if (GUILayout.Button("Remove Steps", GUILayout.Width(100f)))
                     {
-                        int count = BeatManager.StepsManager.leadSteps.Count / 2;
+                        int count = StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps.Count / 2;
                         for (int i = 0; i < count; i++)
                         {
-                            BeatManager.StepsManager.leadSteps.Remove(BeatManager.StepsManager.leadSteps[BeatManager.StepsManager.leadSteps.Count - 1]);
+                            StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps.Remove(StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps.Count - 1]);
                         }
                     }
                     GUILayout.EndVertical();
-                    for (int k = 0; k < BeatManager.StepsManager.leadSteps.Count; k++)
+                    for (int k = 0; k < StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps.Count; k++)
                     {
-                        StepsManager.Step step = BeatManager.StepsManager.leadSteps[k];
-                        if (GUILayout.Button(BeatManager.StepsManager.leadSteps[k].enabled ? beatManager.texture : beatManager.texture1, EditorStyles.largeLabel, GUILayout.ExpandWidth(false), GUILayout.ExpandHeight(false)))
+                        StepsManager.LeftStep step = StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[k];
+                        if (GUILayout.Button(StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[k].enabled ? beatManager.texture : beatManager.texture1, EditorStyles.largeLabel, GUILayout.ExpandWidth(false), GUILayout.ExpandHeight(false)))
                         {
                             if ((EditorApplication.timeSinceStartup - clickTime) < doubleClickTime)
                             {
                                 if (step.window == null)
                                 {
                                     EditorWindow window = new SceneView();
-                                    window.titleContent = new GUIContent() { text = step.type.ToString() + " " + k.ToString() };
-                                    SceneView sceneView = EditorWindow.GetWindow<SceneView>(false, window.titleContent.text);
-                                    window.minSize = new Vector2(400f, 400f);
-                                    window.maxSize = new Vector2(400f, 400f);
-                                    window.Show();
-                                    sceneView.showGrid = false;
-                                    sceneView.pivot = step.renderer.transform.position;
-                                    sceneView.rotation = Quaternion.Inverse(Quaternion.LookRotation(step.renderer.transform.position - sceneView.camera.transform.position, sceneView.camera.transform.up));
+                                    SceneView sceneView1 = EditorWindow.GetWindow<SceneView>(false, window.titleContent.text);
+                                    window.titleContent = new GUIContent() { text = k.ToString() };
                                     step.window = window;
                                 }
-                                else
-                                {
-                                    SceneView sceneView = EditorWindow.GetWindow<SceneView>(false, step.type.ToString() + " " + k.ToString());
-                                    step.window.minSize = new Vector2(400f, 400f);
-                                    step.window.maxSize = new Vector2(400f, 400f);
-                                    step.window.Show();
-                                    sceneView.showGrid = false;
-                                    sceneView.pivot = step.renderer.transform.position;
-                                    sceneView.rotation = Quaternion.Inverse(Quaternion.LookRotation(step.renderer.transform.position - sceneView.camera.transform.position, sceneView.camera.transform.up));
-                                    step.window.Show();
-                                }
+                                SceneView sceneView = EditorWindow.GetWindow<SceneView >(false, step.window.titleContent.text);
+                                step.window.minSize = new Vector2(400f, 400f);
+                                step.window.maxSize = new Vector2(400f, 400f);
+                                sceneView.showGrid = false;
+                                sceneView.pivot = step.renderer.transform.position;
+                                sceneView.rotation = Quaternion.Inverse(Quaternion.LookRotation(step.renderer.transform.position - sceneView.camera.transform.position, sceneView.camera.transform.up));
+                                step.window.Show();
                             }
 
 
                             clickTime = EditorApplication.timeSinceStartup;
 
                             step.enabled = !step.enabled;
-                            BeatManager.StepsManager.leadSteps[k] = step;
+                            StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[k] = step;
                         }
                     }
                     GUILayout.EndHorizontal();
-
+                    #endregion
+                    #region FollowSteps
                     GUILayout.BeginHorizontal(EditorStyles.helpBox);
                     GUILayout.BeginVertical();
-                    GUILayout.Label("Follow");
+                    GUILayout.Label("Lead");
                     if (GUILayout.Button("Add Steps", GUILayout.Width(100f)))
                     {
-                        int count = BeatManager.StepsManager.followSteps.Count;
+                        int count = StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count;
                         for (int i = 0; i < count; i++)
                         {
-                            BeatManager.StepsManager.followSteps.Add(new StepsManager.Step() { type = StepsManager.Type.Follow });
+                            StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Add(new StepsManager.RightStep());
                         }
                     }
                     if (GUILayout.Button("Remove Steps", GUILayout.Width(100f)))
                     {
-                        int count = BeatManager.StepsManager.followSteps.Count / 2;
+                        int count = StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count / 2;
                         for (int i = 0; i < count; i++)
                         {
-                            BeatManager.StepsManager.followSteps.Remove(BeatManager.StepsManager.followSteps[BeatManager.StepsManager.followSteps.Count - 1]);
+                            StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Remove(StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count - 1]);
                         }
                     }
                     GUILayout.EndVertical();
-                    for (int k = 0; k < BeatManager.StepsManager.followSteps.Count; k++)
+                    for (int k = 0; k < StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count; k++)
                     {
-                        if (GUILayout.Button(BeatManager.StepsManager.followSteps[k].enabled ? beatManager.texture : beatManager.texture1, EditorStyles.largeLabel, GUILayout.ExpandWidth(false), GUILayout.ExpandHeight(false)))
+                        StepsManager.RightStep step = StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[k];
+                        if (GUILayout.Button(StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[k].enabled ? beatManager.texture : beatManager.texture1, EditorStyles.largeLabel, GUILayout.ExpandWidth(false), GUILayout.ExpandHeight(false)))
                         {
-                            StepsManager.Step step = BeatManager.StepsManager.followSteps[k];
+                            if ((EditorApplication.timeSinceStartup - clickTime) < doubleClickTime)
+                            {
+                                if (step.window == null)
+                                {
+                                    EditorWindow window = new SceneView();
+                                    SceneView sceneView1 = EditorWindow.GetWindow<SceneView>(false, window.titleContent.text);
+                                    window.titleContent = new GUIContent() { text = k.ToString() };
+                                    step.window = window;
+                                }
+                                SceneView sceneView = EditorWindow.GetWindow<SceneView>(false, step.window.titleContent.text);
+                                step.window.minSize = new Vector2(400f, 400f);
+                                step.window.maxSize = new Vector2(400f, 400f);
+                                sceneView.showGrid = false;
+                                sceneView.pivot = step.renderer.transform.position;
+                                sceneView.rotation = Quaternion.Inverse(Quaternion.LookRotation(step.renderer.transform.position - sceneView.camera.transform.position, sceneView.camera.transform.up));
+                                step.window.Show();
+                            }
+
+
+                            clickTime = EditorApplication.timeSinceStartup;
+
                             step.enabled = !step.enabled;
-                            BeatManager.StepsManager.followSteps[k] = step;
+                            StepsManager.StepsManager.stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[k] = step;
                         }
                     }
                     GUILayout.EndHorizontal();
+                    #endregion
                 }
             }
             GUILayout.EndVertical();

@@ -28,9 +28,20 @@ public class BeatManager : AudioManager
 
     public bool paused = false;
 
+    public bool clearUndo = false;
+
+    private void OnValidate()
+    {
+        if (clearUndo)
+        {
+            clearUndo = false;
+            Undo.ClearAll();
+        }
+    }
+
     private void Start()
     {
-        //base.Play();
+        base.Play();
     }
 
     public void Pause()
