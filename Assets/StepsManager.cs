@@ -12,11 +12,57 @@ public class StepsManager : AudioManager
 
     [SerializeField] private int selectedSequence = 0;
 
+    private void OnValidate()
+    {
+        SelectedSequence = selectedSequence;
+    }
+
     public int SelectedSequence
     {
         get
         {
             return selectedSequence;
+        }
+        private set
+        {
+            selectedSequence = value;
+            for (int i = 0; i < stepsSequences.Count; i++)
+            {
+                if (i != value)
+                {
+                    for (int j = 0; j < stepsSequences[i].leadSteps.Count; j++)
+                    {
+                        if (stepsSequences[i].leadSteps[j].enabled)
+                        {
+                            stepsSequences[i].leadSteps[j].renderer.enabled = false;
+                        }
+                    }
+                    for (int j = 0; j < stepsSequences[i].followSteps.Count; j++)
+                    {
+                        if (stepsSequences[i].followSteps[j].enabled)
+                        {
+                            stepsSequences[i].followSteps[j].renderer.enabled = false;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < stepsSequences[i].leadSteps.Count; j++)
+                    {
+                        if (stepsSequences[i].leadSteps[j].enabled)
+                        {
+                            stepsSequences[i].leadSteps[j].renderer.enabled = true;
+                        }
+                    }
+                    for (int j = 0; j < stepsSequences[i].followSteps.Count; j++)
+                    {
+                        if (stepsSequences[i].followSteps[j].enabled)
+                        {
+                            stepsSequences[i].followSteps[j].renderer.enabled = true;
+                        }
+                    }
+                }
+            }
         }
     }
 
