@@ -1119,6 +1119,49 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!1 &168084793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 168084795}
+  - component: {fileID: 168084794}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &168084794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168084793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79da062c2e6c043b48a10233c8877531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &168084795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168084793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.28312612, y: -0.12622094, z: 0.32478178}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &168914684
 GameObject:
   m_ObjectHideFlags: 0
@@ -5010,33 +5053,2628 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63525b84f82514024a65513a0a0a3d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatbaseLines:
-  - name: 
-    beats:
-    - clip: {fileID: 8300000, guid: 0a1f4820feda94d35b4ccbee738830ff, type: 3}
-      notes:
-      - enabled: 1
-      - enabled: 0
-      - enabled: 0
-      - enabled: 0
-      - enabled: 1
-      - enabled: 0
-      - enabled: 0
-      - enabled: 0
-      beatEnabled: 1
-      division: 8
-      volume: 1
-    enabled: 1
-  defaultClip: {fileID: 0}
+  setOfBeatbaseLines:
+  - beatBaseLines:
+    - name: 
+      beats:
+      - clip: {fileID: 8300000, guid: 126a9017478e44e73af4a21c8f54a599, type: 3}
+        notes:
+        - enabled: 1
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        beatEnabled: 1
+        division: 8
+        volume: 1
+      - clip: {fileID: 8300000, guid: 90637f79420014155ac2b49273f25169, type: 3}
+        notes:
+        - enabled: 1
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        beatEnabled: 1
+        division: 8
+        volume: 1
+      - clip: {fileID: 8300000, guid: b765c9b5609194c99b89c1f0377cb7e3, type: 3}
+        notes:
+        - enabled: 1
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        beatEnabled: 1
+        division: 8
+        volume: 1
+      - clip: {fileID: 8300000, guid: 7b5812ed909b440ceb2d34cfe9343a8f, type: 3}
+        notes:
+        - enabled: 1
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        beatEnabled: 1
+        division: 8
+        volume: 1
+      - clip: {fileID: 8300000, guid: efd2704c2706e4002a417f78af464b92, type: 3}
+        notes:
+        - enabled: 1
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        beatEnabled: 1
+        division: 8
+        volume: 1
+      - clip: {fileID: 8300000, guid: ba2b8726d79754e1e9dfbef792a0e90e, type: 3}
+        notes:
+        - enabled: 1
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        beatEnabled: 1
+        division: 8
+        volume: 1
+      - clip: {fileID: 8300000, guid: c7ded08379aef4fbbaef183e6226cdb0, type: 3}
+        notes:
+        - enabled: 1
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        beatEnabled: 1
+        division: 8
+        volume: 1
+      - clip: {fileID: 8300000, guid: 1e3208455b24048fe85f1e4315a41ebf, type: 3}
+        notes:
+        - enabled: 1
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        beatEnabled: 1
+        division: 8
+        volume: 1
+      - clip: {fileID: 8300000, guid: 33d275a57cf484b40bf540b24c2ba53c, type: 3}
+        notes:
+        - enabled: 1
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        beatEnabled: 1
+        division: 8
+        volume: 1
+      - clip: {fileID: 8300000, guid: 43453f8daaaa34ae2be016469ce4b606, type: 3}
+        notes:
+        - enabled: 1
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        - enabled: 0
+        beatEnabled: 1
+        division: 8
+        volume: 1
+      enabled: 1
   texture: {fileID: 2800000, guid: 1875871e345fc4c09a986d9ac1db1b90, type: 3}
   texture1: {fileID: 2800000, guid: 34810c1bc353c4bed995b8cf6d991446, type: 3}
-  playedTexture: {fileID: 2800000, guid: f1693ab1479cb4ea187e58ac1e986ebc, type: 3}
-  plus: {fileID: 2800000, guid: 5c11d9e94d07740afbe3fe454c73fdc0, type: 3}
-  minus: {fileID: 2800000, guid: ecef0067e144a4ec4b4bb071749c26bc, type: 3}
+  defaultClip: {fileID: 0}
   backGroundTexture: {fileID: 10305, guid: 0000000000000000f000000000000000, type: 3}
-  bpm: 52
-  paused: 0
-  clearUndo: 0
+  bpm: 86.87166
+  selectedBeatBaseLine: 0
+  selectedBeatBaseLines: 0
 --- !u!1 &1037295688
 GameObject:
   m_ObjectHideFlags: 0
@@ -7445,396 +10083,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b14a3b9af02407e8003e42c556ad8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepsSequences:
-  - leadSteps:
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 1
-      Renderer: {fileID: 180012886}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 1
-      Renderer: {fileID: 1575638886}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 1
-      Renderer: {fileID: 2080569209}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    followSteps:
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 1
-      Renderer: {fileID: 1296879348}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 1
-      Renderer: {fileID: 1156866738}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 1
-      Renderer: {fileID: 1392930245}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-  - leadSteps:
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 1
-      Renderer: {fileID: 1538457113}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 1
-      Renderer: {fileID: 1754729510}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 1
-      Renderer: {fileID: 1072816253}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    followSteps:
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 1
-      Renderer: {fileID: 1283008587}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 1
-      Renderer: {fileID: 1084078183}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 1
-      Renderer: {fileID: 673455333}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-    - window: {fileID: 0}
-      enabled: 0
-      Renderer: {fileID: 0}
-  selectedSequence: 1
+  setOfStepsSequences:
+  - stepsSequences:
+    - leadSteps:
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      followSteps:
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+      - window: {fileID: 0}
+        enabled: 0
+        Renderer: {fileID: 0}
+  selectedSequences: 0
+  selectedSequence: 0
   platform: {fileID: 628335410}
   followStepPrefab: {fileID: 432856191909753512, guid: 8455d4ee96ed245dc87f489ddb6c810a, type: 3}
   leadStepPrefab: {fileID: 9211546228995821812, guid: f62a0c452ee904fd4a53fa4a7889cda4, type: 3}
@@ -9401,7 +11703,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754975044}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}

@@ -8,73 +8,41 @@ using Unity.Burst;
 
 public class BeatManager : AudioManager
 {
-    public static BeatManager Instance;
-
-    public BeatBaseLine[] beatbaseLines;
-
-    public AudioClip defaultClip;
+    Terrain terrainData;
+    public SetOfBeatBaseLines[] setOfBeatbaseLines;
 
     public Texture texture;
 
     public Texture texture1;
 
-    public Texture playedTexture;
-
-    public Texture plus, minus;
+    public AudioClip defaultClip;
 
     public Texture2D backGroundTexture;
 
-    public int bpm = 60;
+    public float bpm = 60;
 
-    public bool paused = false;
+    public int selectedBeatBaseLine = 0;
 
-    public bool clearUndo = false;
-
-    private void OnValidate()
-    {
-        if (clearUndo)
-        {
-            clearUndo = false;
-            Undo.ClearAll();
-        }
-    }
+    public int selectedBeatBaseLines = 0;
 
     private void Start()
     {
         base.Play();
     }
 
-    public void Pause()
-    {
-        paused = true;
-    }
-
-    public void Resume()
-    {
-        paused = false;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            paused = !paused;
-        }
-    }
-
     public void ToggleBeat(int i)
     {
-        beatbaseLines[0].beats[i].beatEnabled = !beatbaseLines[0].beats[i].beatEnabled;
+        setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats[i].beatEnabled = !setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats[i].beatEnabled;
     }
 
     public void AddBeatBaseLine()
     {
-        if (beatbaseLines.Length != 0)
+        if (setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines.Length != 0)
         {
             List<BeatBaseLine> beatBaseLines = new List<BeatBaseLine>();
-            for (int i = 0; i < beatbaseLines.Length; i++)
+            for (int i = 0; i < setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines.Length; i++)
             {
-                beatBaseLines.Add(beatbaseLines[i]);
+                beatBaseLines.Add(this[i]);
             }
             BeatBaseLine newBeatBaseLine = new BeatBaseLine()
             {
@@ -83,53 +51,53 @@ public class BeatManager : AudioManager
             //newBeatBaseLine.beats[0].notes = new Note[0];
             newBeatBaseLine.enabled = true;
             beatBaseLines.Add(newBeatBaseLine);
-            beatbaseLines = beatBaseLines.ToArray();
+            setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines = beatBaseLines.ToArray();
         }
         else
         {
-            beatbaseLines = new BeatBaseLine[1];
-            beatbaseLines[0].beats = new Beat[0];
-            beatbaseLines[0].enabled = true;
+            setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines = new BeatBaseLine[1];
+            setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats = new Beat[0];
+            setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].enabled = true;
         }
     }
 
     public void AddNewBeat(int beatBaseLineIndex)
     {
-        Beat[] beats = beatbaseLines[beatBaseLineIndex].beats;
-        beatbaseLines[beatBaseLineIndex].beats = new Beat[beatbaseLines[beatBaseLineIndex].beats.Length + 1];
+        Beat[] beats = this[beatBaseLineIndex].beats;
+        setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[beatBaseLineIndex].beats = new Beat[this[beatBaseLineIndex].beats.Length + 1];
         for (int i = 0; i < beats.Length; i++)
         {
-            beatbaseLines[beatBaseLineIndex].beats[i] = beats[i];
+            this[beatBaseLineIndex, i] = beats[i];
         }
         Beat newBeat = new Beat();
         newBeat.clip = defaultClip;
         newBeat.beatEnabled = true;
-        if (beatbaseLines[beatBaseLineIndex].beats.Length <= 1)
+        if (this[beatBaseLineIndex].beats.Length <= 1)
         {
             newBeat.notes = new Note[8];
         }
         else
         {
-            newBeat.notes = new Note[beatbaseLines[(beatBaseLineIndex >= 1 ? beatBaseLineIndex - 1 : beatBaseLineIndex)].beats[beats.Length - 1].notes.Length];
+            newBeat.notes = new Note[this[(beatBaseLineIndex >= 1 ? beatBaseLineIndex - 1 : beatBaseLineIndex)].beats[beats.Length - 1].notes.Length];
         }
-        beatbaseLines[beatBaseLineIndex].beats[beatbaseLines[beatBaseLineIndex].beats.Length - 1] = newBeat;
+        this[beatBaseLineIndex, this[beatBaseLineIndex].beats.Length - 1] = newBeat;
     }
 
     public void RemoveBeat(int beatBaseLineIndex, int beatIndex)
     {
         List<Beat> sampleBeats = new List<Beat>();
-        sampleBeats.AddRange(beatbaseLines[beatBaseLineIndex].beats);
+        sampleBeats.AddRange(this[beatBaseLineIndex].beats);
         sampleBeats.RemoveAt(beatIndex);
-        beatbaseLines[beatBaseLineIndex].beats = sampleBeats.ToArray();
+        setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[beatBaseLineIndex].beats = sampleBeats.ToArray();
     }
 
     public void CloneBeat(int beatBaseLineIndex, int beatIndex)
     {
 
-        Beat[] beats = beatbaseLines[beatBaseLineIndex].beats;
-        beatbaseLines[beatBaseLineIndex].beats = new Beat[beats.Length + 1];
+        Beat[] beats = this[beatBaseLineIndex].beats;
+        setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[beatBaseLineIndex].beats = new Beat[beats.Length + 1];
         int beatToClone = 0;
-        for (int i = 0; i < beatbaseLines[beatBaseLineIndex].beats.Length; i++)
+        for (int i = 0; i < this[beatBaseLineIndex].beats.Length; i++)
         {
             if (i < beatIndex)
             {
@@ -139,40 +107,40 @@ public class BeatManager : AudioManager
             {
                 continue;
             }
-            beatbaseLines[beatBaseLineIndex].beats[i] = beats[(i < beatIndex ? i : i - 1)];
+            this[beatBaseLineIndex, i] = beats[(i < beatIndex ? i : i - 1)];
         }
         Note[] notes = new Note[beats[beatIndex].notes.Length];
         for (int i = 0; i < notes.Length; i++)
         {
             notes[i].enabled = beats[beatIndex].notes[i].enabled;
         }
-        beatbaseLines[beatBaseLineIndex].beats[beatToClone] = beats[beatIndex];
-        beatbaseLines[beatBaseLineIndex].beats[beatToClone].notes = notes;
+        this[beatBaseLineIndex, beatToClone] = beats[beatIndex];
+        this[beatBaseLineIndex, beatToClone].notes = notes;
     }
 
     public void AddNotes(int beatBaseLineIndex, int beatIndex)
     {
-        Note[] notes = beatbaseLines[beatBaseLineIndex].beats[beatIndex].notes;
-        beatbaseLines[beatBaseLineIndex].beats[beatIndex].notes = new Note[notes.Length * 2];
+        Note[] notes = this[beatBaseLineIndex, beatIndex].notes;
+        this[beatBaseLineIndex, beatIndex].notes = new Note[notes.Length * 2];
         for (int i = 0; i < notes.Length; i++)
         {
-            beatbaseLines[beatBaseLineIndex].beats[beatIndex].notes[i] = notes[i];
+            this[beatBaseLineIndex, beatIndex, i] = notes[i];
         }
         for (int i = 0; i < notes.Length; i++)
         {
-            beatbaseLines[beatBaseLineIndex].beats[beatIndex].notes[i + notes.Length] = notes[i];
+            this[beatBaseLineIndex, beatIndex, i + notes.Length] = notes[i];
         }
     }
 
     public void RemoveNotes(int beatBaseLineIndex, int beatIndex)
     {
-        Note[] sampleNotes = beatbaseLines[beatBaseLineIndex].beats[beatIndex].notes;
+        Note[] sampleNotes = this[beatBaseLineIndex, beatIndex].notes;
         Note[] removedNotes = new Note[sampleNotes.Length / 2];
         for (int i = 0; i < removedNotes.Length; i++)
         {
             removedNotes[i] = sampleNotes[i];
         }
-        beatbaseLines[beatBaseLineIndex].beats[beatIndex].notes = removedNotes;
+        this[beatBaseLineIndex, beatIndex].notes = removedNotes;
     }
 
     public void Divide(int beatBaseLineIndex, int beatIndex)
@@ -194,14 +162,18 @@ public class BeatManager : AudioManager
                 newNotes[i].enabled = notes[i * 2].enabled;
             }
         }
-        beatbaseLines[beatBaseLineIndex].beats[beatIndex].notes = newNotes;
+        this[beatBaseLineIndex, beatIndex].notes = newNotes;
     }
 
     public BeatBaseLine this[int x]
     {
         get
         {
-            return beatbaseLines[x];
+            return setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[x];
+        }
+        private set
+        {
+            setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[x] = value;
         }
     }
 
@@ -209,7 +181,11 @@ public class BeatManager : AudioManager
     {
         get
         {
-            return beatbaseLines[x].beats[y];
+            return setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[x].beats[y];
+        }
+        set
+        {
+            setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[x].beats[y] = value;
         }
     }
 
@@ -217,12 +193,18 @@ public class BeatManager : AudioManager
     {
         get
         {
-            return beatbaseLines[x].beats[y].notes[z];
+            return setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[x].beats[y].notes[z];
         }
         set
         {
-            beatbaseLines[x].beats[y].notes[z] = value;
+            setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[x].beats[y].notes[z] = value;
         }
+    }
+
+    [Serializable]
+    public struct SetOfBeatBaseLines
+    {
+        public BeatBaseLine[] beatBaseLines;
     }
 
     [Serializable]

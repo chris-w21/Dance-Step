@@ -11,11 +11,23 @@ public class AudioManager : MonoBehaviour
 
     private static StepsManager stepsManager;
 
-    public static BeatManager.BeatBaseLine[] beatLines
+    private static StyleManager styleManager;
+
+    private static UIManager uiManager;
+
+    public static int SelectedBeatBaseLines
     {
         get
         {
-            return BeatManager.beatbaseLines;
+            return BeatManager.selectedBeatBaseLines;
+        }
+    }
+
+    public static int SelectedBeatBaseLine
+    {
+        get
+        {
+            return BeatManager.selectedBeatBaseLine;
         }
     }
 
@@ -55,16 +67,60 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public static StyleManager StyleManager
+    {
+        get
+        {
+            if (styleManager == null)
+            {
+                styleManager = FindObjectOfType<StyleManager>();
+            }
+            return styleManager;
+        }
+    }
+
+    public static int SelectedStyle
+    {
+        get
+        {
+            return StyleManager.selectedStyle;
+        }
+    }
+
+    public static UIManager UIManager
+    {
+        get
+        {
+            if (uiManager == null)
+            {
+                uiManager = FindObjectOfType<UIManager>();
+            }
+            return uiManager;
+        }
+    }
+
+    public static bool paused { get; private set; }
+
+    public void Pause()
+    {
+        paused = true;
+    }
+
+    public void Resume()
+    {
+        paused = false;
+    }
+
     [BurstCompile]
     public void Play()
     {
-        StartCoroutine(StepsManager.PlayLead());
-        StartCoroutine(StepsManager.PlayFollow());
-        for (int i = 0; i < beatLines.Length; i++)
+        if (BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats.Length > 0)
         {
-            for (int j = 0; j < beatLines[i].beats.Length; j++)
+            StartCoroutine(StepsManager.PlayLead());
+            StartCoroutine(StepsManager.PlayFollow());
+            for (int i = 0; i < BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats.Length; i++)
             {
-                beatLines[i].beats[j].Play(this, BeatManager.bpm, Source, BeatManager[i, j].division);
+                BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats[i].Play(this, BeatManager.bpm, Source, BeatManager[SelectedBeatBaseLine, i].division);
             }
         }
     }
@@ -72,11 +128,11 @@ public class AudioManager : MonoBehaviour
     [BurstCompile]
     private void Stop()
     {
-        for (int i = 0; i < beatLines.Length; i++)
+        if (BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats.Length > 0)
         {
-            for (int j = 0; j < beatLines[i].beats.Length; j++)
+            for (int i = 0; i < BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats.Length; i++)
             {
-                beatLines[i].beats[j].Stop();
+                BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats[i].Stop();
             }
         }
     }
