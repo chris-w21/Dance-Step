@@ -25,6 +25,14 @@ public class BeatManager : AudioManager
 
     public int selectedBeatBaseLines = 0;
 
+    public Text t;
+
+    public void BPM(float newBPM)
+    {
+        t.text = newBPM.ToString();
+        bpm = newBPM;
+    }
+
     private void Start()
     {
         base.Play();
