@@ -179,63 +179,10 @@ Editor
 
                 }
             }
-            #region LeftSteps
-            GUILayout.BeginHorizontal(EditorStyles.helpBox);
-            GUILayout.BeginVertical();
-            GUILayout.Label("Left");
-            if (GUILayout.Button("Add Steps", GUILayout.Width(100f)))
-            {
-                int count = StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count;
-                for (int i = 0; i < count; i++)
-                {
-                    StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Add(new StepsManager.RightStep());
-                }
-            }
-            if (GUILayout.Button("Remove Steps", GUILayout.Width(100f)))
-            {
-                int count = StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count / 2;
-                for (int i = 0; i < count; i++)
-                {
-                    StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Remove(StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count - 1]);
-                }
-            }
-            GUILayout.EndVertical();
-            for (int k = 0; k < StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count; k++)
-            {
-                StepsManager.RightStep step = StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[k];
-                if (GUILayout.Button(StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[k].enabled ? beatManager.texture : beatManager.texture1, EditorStyles.largeLabel, GUILayout.ExpandWidth(false), GUILayout.ExpandHeight(false)))
-                {
-                    if ((EditorApplication.timeSinceStartup - clickTime) < doubleClickTime)
-                    {
-                        if (step.window == null)
-                        {
-                            EditorWindow window = new SceneView();
-                            SceneView sceneView1 = EditorWindow.GetWindow<SceneView>(false, window.titleContent.text);
-                            window.titleContent = new GUIContent() { text = k.ToString() };
-                            step.window = window;
-                        }
-                        SceneView sceneView = EditorWindow.GetWindow<SceneView>(false, step.window.titleContent.text);
-                        step.window.minSize = new Vector2(400f, 400f);
-                        step.window.maxSize = new Vector2(400f, 400f);
-                        sceneView.showGrid = false;
-                        sceneView.pivot = step.renderer.transform.position;
-                        sceneView.rotation = Quaternion.Inverse(Quaternion.LookRotation(step.renderer.transform.position - sceneView.camera.transform.position, sceneView.camera.transform.up));
-                        step.window.Show();
-                    }
-
-
-                    clickTime = EditorApplication.timeSinceStartup;
-
-                    step.enabled = !step.enabled;
-                    StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[k] = step;
-                }
-            }
-            GUILayout.EndHorizontal();
-            #endregion
             #region RightSteps
             GUILayout.BeginHorizontal(EditorStyles.helpBox);
             GUILayout.BeginVertical();
-            GUILayout.Label("Right");
+            GUILayout.Label("Left");
             if (GUILayout.Button("Add Steps", GUILayout.Width(100f)))
             {
                 int count = StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps.Count;
@@ -281,6 +228,59 @@ Editor
 
                     step.enabled = !step.enabled;
                     StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].leadSteps[k] = step;
+                }
+            }
+            GUILayout.EndHorizontal();
+            #endregion
+            #region LeftSteps
+            GUILayout.BeginHorizontal(EditorStyles.helpBox);
+            GUILayout.BeginVertical();
+            GUILayout.Label("Right");
+            if (GUILayout.Button("Add Steps", GUILayout.Width(100f)))
+            {
+                int count = StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count;
+                for (int i = 0; i < count; i++)
+                {
+                    StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Add(new StepsManager.RightStep());
+                }
+            }
+            if (GUILayout.Button("Remove Steps", GUILayout.Width(100f)))
+            {
+                int count = StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count / 2;
+                for (int i = 0; i < count; i++)
+                {
+                    StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Remove(StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count - 1]);
+                }
+            }
+            GUILayout.EndVertical();
+            for (int k = 0; k < StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps.Count; k++)
+            {
+                StepsManager.RightStep step = StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[k];
+                if (GUILayout.Button(StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[k].enabled ? beatManager.texture : beatManager.texture1, EditorStyles.largeLabel, GUILayout.ExpandWidth(false), GUILayout.ExpandHeight(false)))
+                {
+                    if ((EditorApplication.timeSinceStartup - clickTime) < doubleClickTime)
+                    {
+                        if (step.window == null)
+                        {
+                            EditorWindow window = new SceneView();
+                            SceneView sceneView1 = EditorWindow.GetWindow<SceneView>(false, window.titleContent.text);
+                            window.titleContent = new GUIContent() { text = k.ToString() };
+                            step.window = window;
+                        }
+                        SceneView sceneView = EditorWindow.GetWindow<SceneView>(false, step.window.titleContent.text);
+                        step.window.minSize = new Vector2(400f, 400f);
+                        step.window.maxSize = new Vector2(400f, 400f);
+                        sceneView.showGrid = false;
+                        sceneView.pivot = step.renderer.transform.position;
+                        sceneView.rotation = Quaternion.Inverse(Quaternion.LookRotation(step.renderer.transform.position - sceneView.camera.transform.position, sceneView.camera.transform.up));
+                        step.window.Show();
+                    }
+
+
+                    clickTime = EditorApplication.timeSinceStartup;
+
+                    step.enabled = !step.enabled;
+                    StepsManager.StepsManager.setOfStepsSequences[StepsManager.StepsManager.selectedSequences].stepsSequences[StepsManager.StepsManager.SelectedSequence].followSteps[k] = step;
                 }
             }
             GUILayout.EndHorizontal();
