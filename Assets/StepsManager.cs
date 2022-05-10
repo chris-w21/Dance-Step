@@ -14,6 +14,8 @@ public class StepsManager : AudioManager
 
     [SerializeField] private int selectedSequence = 0;
 
+    [SerializeField] private float bpmDividor = 1f;
+
     private void OnValidate()
     {
         SelectedSequence = selectedSequence;
@@ -87,16 +89,16 @@ public class StepsManager : AudioManager
             {
                 for (int i = 0; i < setOfStepsSequences[selectedSequences].stepsSequences[StepsManager.SelectedSequence].leadSteps.Count; i++)
                 {
-                    yield return new WaitForSecondsRealtime((((60f / setOfStepsSequences[selectedSequences].stepsSequences[StepsManager.SelectedSequence].leadSteps.Count)) /** i*/ / BeatManager.bpm) * setOfStepsSequences[selectedSequences].stepsSequences[SelectedSequence].leadSteps.Count / division);
                     if (!BeatManager.paused && setOfStepsSequences[selectedSequences].stepsSequences[StepsManager.SelectedSequence].leadSteps[i].enabled)
                     {
                         setOfStepsSequences[selectedSequences].stepsSequences[SelectedSequence].ActivateLead(i);
                     }
+                    yield return new WaitForSecondsRealtime((((60f / setOfStepsSequences[selectedSequences].stepsSequences[StepsManager.SelectedSequence].leadSteps.Count)) /** i*/ / BeatManager.bpm / bpmDividor) * setOfStepsSequences[selectedSequences].stepsSequences[SelectedSequence].leadSteps.Count / division);
                 }
             }
             else
             {
-                yield return new WaitForSecondsRealtime(60f * setOfStepsSequences[selectedSequences].stepsSequences[SelectedSequence].leadSteps.Count / division / BeatManager.bpm);
+                yield return new WaitForSecondsRealtime(60f * setOfStepsSequences[selectedSequences].stepsSequences[SelectedSequence].leadSteps.Count / division / BeatManager.bpm / bpmDividor);
             }
             yield return new WaitForEndOfFrame();
         }
@@ -111,16 +113,16 @@ public class StepsManager : AudioManager
             {
                 for (int i = 0; i < setOfStepsSequences[selectedSequences].stepsSequences[SelectedSequence].followSteps.Count; i++)
                 {
-                    yield return new WaitForSecondsRealtime((((60f / setOfStepsSequences[selectedSequences].stepsSequences[StepsManager.SelectedSequence].followSteps.Count)) /** i*/ / BeatManager.bpm) * setOfStepsSequences[selectedSequences].stepsSequences[SelectedSequence].followSteps.Count / division);
                     if (!paused && setOfStepsSequences[selectedSequences].stepsSequences[SelectedSequence].followSteps[i].enabled)
                     {
                         setOfStepsSequences[selectedSequences].stepsSequences[SelectedSequence].ActivateFollow(i);
                     }
+                    yield return new WaitForSecondsRealtime((((60f / setOfStepsSequences[selectedSequences].stepsSequences[StepsManager.SelectedSequence].followSteps.Count)) /** i*/ / BeatManager.bpm / bpmDividor) * setOfStepsSequences[selectedSequences].stepsSequences[SelectedSequence].followSteps.Count / division);
                 }
             }
             else
             {
-                yield return new WaitForSecondsRealtime(60f * setOfStepsSequences[selectedSequences].stepsSequences[StepsManager.SelectedSequence].followSteps.Count / division / BeatManager.bpm);
+                yield return new WaitForSecondsRealtime(60f * setOfStepsSequences[selectedSequences].stepsSequences[StepsManager.SelectedSequence].followSteps.Count / division / BeatManager.bpm / bpmDividor);
             }
             yield return new WaitForEndOfFrame();
         }

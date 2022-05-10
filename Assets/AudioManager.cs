@@ -101,6 +101,13 @@ public class AudioManager : MonoBehaviour
 
     public static bool paused { get; private set; }
 
+    public static bool isPlaying = false;
+
+    private void Start()
+    {
+        isPlaying = false;
+    }
+
     public void Pause()
     {
         paused = true;
@@ -114,6 +121,7 @@ public class AudioManager : MonoBehaviour
     [BurstCompile]
     public void Play()
     {
+        isPlaying = true;
         if (BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats.Length > 0)
         {
             StartCoroutine(StepsManager.PlayLead());
@@ -126,14 +134,16 @@ public class AudioManager : MonoBehaviour
     }
 
     [BurstCompile]
-    private void Stop()
+    public void Stop()
     {
+        isPlaying = false;
         if (BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats.Length > 0)
         {
             for (int i = 0; i < BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats.Length; i++)
             {
-                BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats[i].Stop();
+                BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats[i].Stop(this);
             }
         }
+        Source.Stop();
     }
 }

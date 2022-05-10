@@ -33,9 +33,19 @@ public class BeatManager : AudioManager
         bpm = newBPM;
     }
 
-    private void Start()
+    private void Update()
     {
-        base.Play();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isPlaying)
+            {
+                base.Stop();
+            }
+            else
+            {
+                base.Play();
+            }
+        }
     }
 
     public void ToggleBeat(int i)
@@ -245,9 +255,9 @@ public class BeatManager : AudioManager
             caller.StartCoroutine(PlayBeat(caller, BPM, source, division));
         }
 
-        public void Stop()
+        public void Stop(MonoBehaviour caller)
         {
-            _caller.StopAllCoroutines();
+            caller.StopAllCoroutines();
         }
 
         [BurstCompile]
@@ -259,12 +269,12 @@ public class BeatManager : AudioManager
                 {
                     for (int i = 0; i < notes.Length; i++)
                     {
-                        yield return new WaitForSecondsRealtime((((60f / notes.Length)) /** i*/ / BeatManager.bpm) * notes.Length / division);
                         if (!BeatManager.paused && beatEnabled)
                         {
                             IEnumerator IE = Play(BeatManager.bpm, notes[i].enabled, notes.Length, clip, source, (float)i, division);
                             caller.StartCoroutine(IE);
                         }
+                        yield return new WaitForSecondsRealtime((((60f / notes.Length)) /** i*/ / BeatManager.bpm) * notes.Length / division);
                     }
                 }
                 else
