@@ -33,24 +33,27 @@ public class BeatManager : AudioManager
         bpm = newBPM;
     }
 
+    public void ToggleBeat(int i)
+    {
+        setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats[i].beatEnabled = !setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats[i].beatEnabled;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isPlaying)
+            if (!paused)
             {
-                base.Stop();
+                Pause();
+                Source.Pause();
             }
             else
             {
-                base.Play();
+                Resume();
+                Source.UnPause();
             }
+            Debug.Log(paused);
         }
-    }
-
-    public void ToggleBeat(int i)
-    {
-        setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats[i].beatEnabled = !setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats[i].beatEnabled;
     }
 
     public void AddBeatBaseLine()
@@ -267,14 +270,21 @@ public class BeatManager : AudioManager
             {
                 if (BeatManager.bpm != 0f)
                 {
-                    for (int i = 0; i < notes.Length; i++)
+                    for (int i = 0; i < notes.Length; i+= !BeatManager.paused ? 1 : 0)
                     {
-                        if (!BeatManager.paused && beatEnabled)
+                        if (!BeatManager.paused)
                         {
-                            IEnumerator IE = Play(BeatManager.bpm, notes[i].enabled, notes.Length, clip, source, (float)i, division);
-                            caller.StartCoroutine(IE);
+                            if (!BeatManager.paused && beatEnabled)
+                            {
+                                IEnumerator IE = Play(BeatManager.bpm, notes[i].enabled, notes.Length, clip, source, (float)i, division);
+                                caller.StartCoroutine(IE);
+                            }
+                            yield return new WaitForSecondsRealtime((((60f / notes.Length)) / BeatManager.bpm) * notes.Length / division);
                         }
-                        yield return new WaitForSecondsRealtime((((60f / notes.Length)) /** i*/ / BeatManager.bpm) * notes.Length / division);
+                        else
+                        {
+                            yield return null;
+                        }
                     }
                 }
                 else

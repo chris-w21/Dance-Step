@@ -118,6 +118,18 @@ public class AudioManager : MonoBehaviour
         paused = false;
     }
 
+    public void TogglePlaying()
+    {
+        if (isPlaying)
+        {
+            Stop();
+        }
+        else
+        {
+            Play();
+        }
+    }
+
     [BurstCompile]
     public void Play()
     {
