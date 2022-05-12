@@ -5,8 +5,6 @@ using Unity.Burst;
 
 public class AudioManager : MonoBehaviour
 {
-    private static AudioSource audioSource;
-
     private static BeatManager beatManager;
 
     private static StepsManager stepsManager;
@@ -28,18 +26,6 @@ public class AudioManager : MonoBehaviour
         get
         {
             return BeatManager.selectedBeatBaseLine;
-        }
-    }
-
-    public static AudioSource Source
-    {
-        get
-        {
-            if (audioSource == null)
-            {
-                audioSource = FindObjectOfType<AudioSource>();
-            }
-            return audioSource;
         }
     }
 
@@ -99,35 +85,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public static bool paused { get; private set; }
+    public static bool paused = false;
 
     public static bool isPlaying = false;
 
     private void Start()
     {
         isPlaying = false;
-    }
-
-    public void Pause()
-    {
-        paused = true;
-    }
-
-    public void Resume()
-    {
         paused = false;
-    }
-
-    public void TogglePlaying()
-    {
-        if (isPlaying)
-        {
-            Stop();
-        }
-        else
-        {
-            Play();
-        }
     }
 
     [BurstCompile]
@@ -140,7 +105,14 @@ public class AudioManager : MonoBehaviour
             StartCoroutine(StepsManager.PlayFollow());
             for (int i = 0; i < BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats.Length; i++)
             {
-                BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats[i].Play(this, BeatManager.bpm, Source, BeatManager[SelectedBeatBaseLine, i].division);
+                if (BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats[i].source == null)
+                {
+                    AudioSource newSource = gameObject.AddComponent<AudioSource>();
+                    newSource.loop = false;
+                    newSource.playOnAwake = false;
+                    BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats[i].source = newSource;
+                }
+                BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats[i].Play(this, BeatManager.bpm, BeatManager[SelectedBeatBaseLine, i].division);
             }
         }
     }
@@ -153,9 +125,9 @@ public class AudioManager : MonoBehaviour
         {
             for (int i = 0; i < BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats.Length; i++)
             {
+                BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats[i].source.Stop();
                 BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats[i].Stop(this);
             }
         }
-        Source.Stop();
     }
 }

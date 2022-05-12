@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4250,7 +4250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 964f6e5c88a954db28c8b999b30572c8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a249d88ae4176fd438a9681bb94b702c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7331,7 +7331,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991952920}
   m_LocalRotation: {x: 0.707106, y: -0.0010753105, z: -0.0010753053, w: 0.707106}
-  m_LocalPosition: {x: -1.0062661, y: 0.018060798, z: -2.7969263}
+  m_LocalPosition: {x: -1.47, y: 0.02, z: -2.03}
   m_LocalScale: {x: 0.81792086, y: 1.9667257, z: 2.5105}
   m_Children: []
   m_Father: {fileID: 1501127696}
@@ -7552,6 +7552,7 @@ MonoBehaviour:
         beatEnabled: 1
         division: 8
         volume: 1
+        source: {fileID: 0}
       - clip: {fileID: 8300000, guid: 90637f79420014155ac2b49273f25169, type: 3}
         notes:
         - enabled: 1
@@ -7565,6 +7566,7 @@ MonoBehaviour:
         beatEnabled: 1
         division: 8
         volume: 1
+        source: {fileID: 0}
       - clip: {fileID: 8300000, guid: b765c9b5609194c99b89c1f0377cb7e3, type: 3}
         notes:
         - enabled: 1
@@ -7578,6 +7580,7 @@ MonoBehaviour:
         beatEnabled: 1
         division: 8
         volume: 1
+        source: {fileID: 0}
       - clip: {fileID: 8300000, guid: 7b5812ed909b440ceb2d34cfe9343a8f, type: 3}
         notes:
         - enabled: 1
@@ -7591,6 +7594,7 @@ MonoBehaviour:
         beatEnabled: 1
         division: 8
         volume: 1
+        source: {fileID: 0}
       - clip: {fileID: 8300000, guid: efd2704c2706e4002a417f78af464b92, type: 3}
         notes:
         - enabled: 1
@@ -7604,6 +7608,7 @@ MonoBehaviour:
         beatEnabled: 1
         division: 8
         volume: 1
+        source: {fileID: 0}
       - clip: {fileID: 8300000, guid: ba2b8726d79754e1e9dfbef792a0e90e, type: 3}
         notes:
         - enabled: 1
@@ -7617,6 +7622,7 @@ MonoBehaviour:
         beatEnabled: 1
         division: 8
         volume: 1
+        source: {fileID: 0}
       - clip: {fileID: 8300000, guid: c7ded08379aef4fbbaef183e6226cdb0, type: 3}
         notes:
         - enabled: 1
@@ -7630,6 +7636,7 @@ MonoBehaviour:
         beatEnabled: 1
         division: 8
         volume: 1
+        source: {fileID: 0}
       - clip: {fileID: 8300000, guid: 1e3208455b24048fe85f1e4315a41ebf, type: 3}
         notes:
         - enabled: 1
@@ -7643,6 +7650,7 @@ MonoBehaviour:
         beatEnabled: 1
         division: 8
         volume: 1
+        source: {fileID: 0}
       - clip: {fileID: 8300000, guid: 33d275a57cf484b40bf540b24c2ba53c, type: 3}
         notes:
         - enabled: 1
@@ -7656,6 +7664,7 @@ MonoBehaviour:
         beatEnabled: 1
         division: 8
         volume: 1
+        source: {fileID: 0}
       - clip: {fileID: 8300000, guid: 43453f8daaaa34ae2be016469ce4b606, type: 3}
         notes:
         - enabled: 1
@@ -7669,12 +7678,13 @@ MonoBehaviour:
         beatEnabled: 1
         division: 8
         volume: 1
+        source: {fileID: 0}
       enabled: 1
   texture: {fileID: 2800000, guid: 1875871e345fc4c09a986d9ac1db1b90, type: 3}
   texture1: {fileID: 2800000, guid: 34810c1bc353c4bed995b8cf6d991446, type: 3}
   defaultClip: {fileID: 0}
   backGroundTexture: {fileID: 10305, guid: 0000000000000000f000000000000000, type: 3}
-  bpm: 2.5
+  bpm: 2.505
   selectedBeatBaseLine: 0
   selectedBeatBaseLines: 0
   t: {fileID: 0}
@@ -12764,6 +12774,7 @@ GameObject:
   - component: {fileID: 1695536388}
   - component: {fileID: 1695536390}
   - component: {fileID: 1695536389}
+  - component: {fileID: 1695536391}
   m_Layer: 5
   m_Name: Checkmark
   m_TagString: Untagged
@@ -12787,8 +12798,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -39, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.0000076294, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1695536389
 MonoBehaviour:
@@ -12810,7 +12821,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 67cd5452dcc6844cc93414cf402a6526, type: 3}
+  m_Sprite: {fileID: 21300000, guid: afd8547701d109844ac5f97d2d51b483, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12828,6 +12839,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695536387}
   m_CullTransparentMesh: 1
+--- !u!114 &1695536391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695536387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!1 &1702283531
 GameObject:
   m_ObjectHideFlags: 0
@@ -13277,7 +13301,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1754975047}
   - component: {fileID: 1754975046}
-  - component: {fileID: 1754975045}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -13285,102 +13308,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &1754975045
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754975044}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &1754975046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15653,8 +15580,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 268, y: -69}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 251.3, y: -107.3}
+  m_SizeDelta: {x: 107.5819, y: 107.5819}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2121223149
 MonoBehaviour:
@@ -15703,9 +15630,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1754975046}
-        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-        m_MethodName: TogglePlaying
+      - m_Target: {fileID: 1026548099}
+        m_TargetAssemblyTypeName: BeatManager, Assembly-CSharp
+        m_MethodName: TogglePaused
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

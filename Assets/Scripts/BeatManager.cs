@@ -8,7 +8,6 @@ using Unity.Burst;
 
 public class BeatManager : AudioManager
 {
-    Terrain terrainData;
     public SetOfBeatBaseLines[] setOfBeatbaseLines;
 
     public Texture texture;
@@ -27,6 +26,8 @@ public class BeatManager : AudioManager
 
     public Text t;
 
+    public static float time = 0;
+
     public void BPM(float newBPM)
     {
         t.text = newBPM.ToString();
@@ -38,21 +39,36 @@ public class BeatManager : AudioManager
         setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats[i].beatEnabled = !setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats[i].beatEnabled;
     }
 
+    public void TogglePaused()
+    {
+        if (!isPlaying)
+        {
+            Play();
+        }
+        switch (!paused)
+        {
+            case true:
+                for (int i = 0; i < BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats.Length; i++)
+                {
+                    BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats[i].source.Pause();
+                }
+                break;
+            case false:
+                for (int i = 0; i < BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats.Length; i++)
+                {
+                    BeatManager.setOfBeatbaseLines[SelectedBeatBaseLines].beatBaseLines[SelectedBeatBaseLine].beats[i].source.UnPause();
+                }
+                break;
+        }
+        paused = !paused;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (paused)
         {
-            if (!paused)
-            {
-                Pause();
-                Source.Pause();
-            }
-            else
-            {
-                Resume();
-                Source.UnPause();
-            }
-            Debug.Log(paused);
+            time += Time.deltaTime;
+            Debug.Log(time);
         }
     }
 
@@ -250,12 +266,14 @@ public class BeatManager : AudioManager
 
         public float volume = 1f;
 
+        public AudioSource source;
+
         private MonoBehaviour _caller;
 
-        public void Play(MonoBehaviour caller, float BPM, AudioSource source, float division)
+        public void Play(MonoBehaviour caller, float BPM, float division)
         {
             _caller = caller;
-            caller.StartCoroutine(PlayBeat(caller, BPM, source, division));
+            caller.StartCoroutine(PlayBeat(caller, BPM, division));
         }
 
         public void Stop(MonoBehaviour caller)
@@ -264,27 +282,19 @@ public class BeatManager : AudioManager
         }
 
         [BurstCompile]
-        private IEnumerator PlayBeat(MonoBehaviour caller, float BPM, AudioSource source, float division)
+        private IEnumerator PlayBeat(MonoBehaviour caller, float BPM, float division)
         {
             while (true)
             {
                 if (BeatManager.bpm != 0f)
                 {
-                    for (int i = 0; i < notes.Length; i+= !BeatManager.paused ? 1 : 0)
+                    if (!BeatManager.paused && beatEnabled)
                     {
-                        if (!BeatManager.paused)
-                        {
-                            if (!BeatManager.paused && beatEnabled)
-                            {
-                                IEnumerator IE = Play(BeatManager.bpm, notes[i].enabled, notes.Length, clip, source, (float)i, division);
-                                caller.StartCoroutine(IE);
-                            }
-                            yield return new WaitForSecondsRealtime((((60f / notes.Length)) / BeatManager.bpm) * notes.Length / division);
-                        }
-                        else
-                        {
-                            yield return null;
-                        }
+                        IEnumerator IE = Play(BeatManager.bpm, notes[0].enabled, notes.Length, clip, (float)0, division);
+                        caller.StartCoroutine(IE);
+                        yield return new WaitForSecondsRealtime(clip.length);
+                        yield return new WaitForSecondsRealtime(time);
+                        time = 0;
                     }
                 }
                 else
@@ -296,7 +306,7 @@ public class BeatManager : AudioManager
         }
 
         [BurstCompile]
-        public IEnumerator Play(float BPM, bool noteEnabled, float notesLen, AudioClip clip, UnityEngine.AudioSource source, float i, float division)
+        public IEnumerator Play(float BPM, bool noteEnabled, float notesLen, AudioClip clip, float i, float division)
         {
             if (!BeatManager.paused)
             {
