@@ -36,7 +36,8 @@ public class BeatManager : AudioManager
 
     public void ToggleBeat(int i)
     {
-        setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats[i].beatEnabled = !setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats[i].beatEnabled;
+        float vol = setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats[i].source.volume;
+        setOfBeatbaseLines[selectedBeatBaseLines].beatBaseLines[selectedBeatBaseLine].beats[i].source.volume = vol == 1 ? 0 : 1;
     }
 
     public void TogglePaused()
