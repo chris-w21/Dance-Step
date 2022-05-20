@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Entities;
+using Unity.Tiny.Audio;
 
-public class AudioClips : MonoBehaviour
+[GenerateAuthoringComponent]
+public struct AudioClips : IComponentData
 {
-    public static AudioClips Instance;
-
-    public void OnEnable()
-    {
-        Instance = this;
-    }
-
-    public AudioClip clip;
+    public Entity Clip;
 }

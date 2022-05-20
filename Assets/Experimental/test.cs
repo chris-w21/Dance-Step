@@ -8,28 +8,23 @@ using System.Threading;
 
 public class Test : ComponentSystem
 {
-    private Unity.Tiny.Audio.AudioSource source;
-
-    private Entity eSource;
-
-    private EntityManager entityManager;
-
-    private Entity eClip;
+    private new EntityManager EntityManager;
 
     protected override void OnStartRunning()
     {
-        entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-        Thread createEntityThread = new Thread(() =>
+        EntityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+
+        Entities.ForEach((Entity e, ref AudioClips clips) =>
         {
-            for (int i = 0; i < 1000000; i++)
-            {
-                entityManager.CreateEntity();
-            }
+            //EntityManager.AddComponentData(e, clips);
+            AudioSource source = new AudioSource() { clip = clips.Clip, loop = true, volume = 1f};
+            EntityManager.AddComponentData(e, source);
+            EntityManager.AddComponent<AudioSourceStart>(e);
         });
-        createEntityThread.Start();
     }
+
     protected override void OnUpdate()
     {
-
+        //throw new System.NotImplementedException();
     }
 }
