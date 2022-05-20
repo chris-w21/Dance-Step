@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8107,7 +8107,7 @@ MonoBehaviour:
   texture1: {fileID: 2800000, guid: 34810c1bc353c4bed995b8cf6d991446, type: 3}
   defaultClip: {fileID: 0}
   backGroundTexture: {fileID: 10305, guid: 0000000000000000f000000000000000, type: 3}
-  bpm: 2.505
+  bpm: 2.75
   selectedBeatBaseLine: 0
   selectedBeatBaseLines: 0
   t: {fileID: 0}
