@@ -2,31 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Entities;
 using Unity.Entities.Hybrid;
-using Unity.Entities.Serialization;
 using Unity.Tiny.Audio;
 using Unity.Tiny;
 using System.Threading;
 
-public class Test : SystemBase
+public class Test : ComponentSystem
 {
     private new EntityManager EntityManager;
 
     protected override void OnStartRunning()
     {
-        //RequireSingletonForUpdate<AudioClip>();
-        if (HasSingleton<AudioClip>())
+        EntityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+
+        Entities.ForEach((Entity e, ref AudioClips clips) =>
         {
-            Debug.Log(true);
-            Debug.Log(GetSingleton<AudioClip>());
-        }
-        else
-        {
-            Debug.Log(false);
-        }
+            //EntityManager.AddComponentData(e, clips);
+            AudioSource source = new AudioSource() { clip = clips.Clip, loop = true, volume = 1f};
+            EntityManager.AddComponentData(e, source);
+            EntityManager.AddComponent<AudioSourceStart>(e);
+        });
     }
 
     protected override void OnUpdate()
     {
-
+        //throw new System.NotImplementedException();
     }
 }
