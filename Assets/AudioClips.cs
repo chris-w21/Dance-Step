@@ -7,5 +7,7 @@ using Unity.Tiny.Audio;
 [GenerateAuthoringComponent]
 public struct AudioClips : IComponentData
 {
-    public Entity Clip;
+    public static AudioClips clips;
+
+    public static Entity Clip;
 }
