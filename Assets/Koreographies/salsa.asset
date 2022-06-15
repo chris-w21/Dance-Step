@@ -20,8 +20,16 @@ MonoBehaviour:
     mEndSample: 33075
   - mStartSample: 66150
     mEndSample: 66150
+  - mStartSample: 99225
+    mEndSample: 99225
   - mStartSample: 132300
     mEndSample: 132300
+  - mStartSample: 165375
+    mEndSample: 165375
+  - mStartSample: 198450
+    mEndSample: 198450
+  - mStartSample: 231525
+    mEndSample: 231525
   _SerializedPayloadTypes: []
   _ColorPayloads: []
   _ColorPayloadIdxs: 
