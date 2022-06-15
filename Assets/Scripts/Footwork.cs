@@ -8,7 +8,6 @@ using SonicBloom;
 public class Footwork : MonoBehaviour
 {
     public List<Renderer> leftSteps, rightSteps;
-    public GameObject leftStepPrefab, rightStepPrefab;
     [SerializeField, EventID] private string eventId = "";
     [SerializeField] private Koreographer koreographer;
     [SerializeField] private Material leftStepOff, leftStepOn, rightStepOff, rightStepOn;
@@ -35,10 +34,7 @@ public class Footwork : MonoBehaviour
             {
                 leftSteps[i].material = leftStepOff;
             }
-            if (leftSteps[currentLeftStep].CompareTag("On"))
-            {
-                leftSteps[currentLeftStep].material = leftStepOn;
-            }
+            leftSteps[currentLeftStep].material = leftStepOn;
             currentLeftStep = currentLeftStep == leftSteps.Count - 1 ? 0 : currentLeftStep + 1;
         }
         lastLeftFootCallBackTime = Time.time;
@@ -57,10 +53,7 @@ public class Footwork : MonoBehaviour
             {
                 rightSteps[i].material = rightStepOff;
             }
-            if (rightSteps[currentRightStep].CompareTag("On"))
-            {
-                rightSteps[currentRightStep].material = rightStepOn;
-            }
+            rightSteps[currentRightStep].material = rightStepOn;
             currentRightStep = currentRightStep == rightSteps.Count - 1 ? 0 : currentRightStep + 1;
         }
         lastRightFootCallBackTime = Time.time;
