@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3177973296852653207}
   m_Layer: 0
   m_Name: Right Step
-  m_TagString: Untagged
+  m_TagString: Off
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
