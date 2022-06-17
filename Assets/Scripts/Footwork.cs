@@ -18,6 +18,7 @@ public class Footwork : MonoBehaviour
     [SerializeField] private MultiMusicPlayer multiMusicPlayer;
     [SerializeField] private Material leftStepOff, leftStepOn, rightStepOff, rightStepOn;
     [SerializeField] private float callbackError = 0.01f;
+    [SerializeField] private bool PlayOnStart = false;
     private float lastLeftFootCallBackTime = 0f, lastRightFootCallBackTime = 0f;
     private int currentLeftStep = 0, currentRightStep = 0;
     private Vector3 originalStepScale = new Vector3(0.817920864f, 1.96672571f, 2.51049995f);
@@ -63,6 +64,10 @@ public class Footwork : MonoBehaviour
         {
             rightSteps[i].material = rightStepOff;
             rightSteps[i].transform.localScale = originalStepScale;
+        }
+        if (PlayOnStart)
+        {
+            Play();
         }
     }
 
