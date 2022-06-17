@@ -10,44 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1223223985, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
-  m_Name: salsa
+  m_Name: salsa 100 track
   m_EditorClassIdentifier: 
-  mEventID: salsa 80 track
+  mEventID: salsa 100 track
   mEventList:
   - mStartSample: 0
     mEndSample: 0
-  - mStartSample: 33075
-    mEndSample: 33075
-  - mStartSample: 66150
-    mEndSample: 66150
-  - mStartSample: 99225
-    mEndSample: 99225
+  - mStartSample: 26460
+    mEndSample: 26460
+  - mStartSample: 52920
+    mEndSample: 52920
+  - mStartSample: 79380
+    mEndSample: 79380
+  - mStartSample: 105840
+    mEndSample: 105840
   - mStartSample: 132300
     mEndSample: 132300
-  - mStartSample: 165375
-    mEndSample: 165375
-  - mStartSample: 198450
-    mEndSample: 198450
-  - mStartSample: 231525
-    mEndSample: 231525
+  - mStartSample: 158760
+    mEndSample: 158760
+  - mStartSample: 185220
+    mEndSample: 185220
+  - mStartSample: 211680
+    mEndSample: 211680
+  - mStartSample: 238140
+    mEndSample: 238140
   - mStartSample: 264600
     mEndSample: 264600
-  - mStartSample: 297675
-    mEndSample: 297675
-  - mStartSample: 330750
-    mEndSample: 330750
-  - mStartSample: 363825
-    mEndSample: 363825
+  - mStartSample: 291060
+    mEndSample: 291060
+  - mStartSample: 317520
+    mEndSample: 317520
+  - mStartSample: 343980
+    mEndSample: 343980
+  - mStartSample: 370440
+    mEndSample: 370440
   - mStartSample: 396900
     mEndSample: 396900
-  - mStartSample: 429975
-    mEndSample: 429975
-  - mStartSample: 463050
-    mEndSample: 463050
-  - mStartSample: 496125
-    mEndSample: 496125
-  - mStartSample: 529200
-    mEndSample: 529200
   _SerializedPayloadTypes: []
   _ColorPayloads: []
   _ColorPayloadIdxs: 
