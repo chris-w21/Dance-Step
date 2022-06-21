@@ -3986,7 +3986,7 @@ MonoBehaviour:
   leftStepOn: {fileID: 2100000, guid: a7240d3ac5e9043078f50294fd579350, type: 2}
   rightStepOff: {fileID: 2100000, guid: 58d98e97cc9ab414b9244c0b8b0d94ae, type: 2}
   rightStepOn: {fileID: 2100000, guid: 8f507cba50d924342bca1710a2443d9d, type: 2}
-  callbackError: 0.01
+  callbackError: 0.05
   PlayOnStart: 0
 --- !u!1 &390871489
 GameObject:

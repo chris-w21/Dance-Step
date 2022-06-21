@@ -209,7 +209,14 @@ public class DemoUIManager : MonoBehaviour
         isPlaying = !isPlaying;
         if (isPlaying)
         {
-            footworks[selectedFootwork].Play();
+            if (footworks[selectedFootwork].isPlaying)
+            {
+                footworks[selectedFootwork].Unpause();
+            }
+            else
+            {
+                footworks[selectedFootwork].Play();
+            }
             isPlaying = true;
         }
         else
