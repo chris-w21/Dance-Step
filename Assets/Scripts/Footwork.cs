@@ -7,18 +7,18 @@ using SonicBloom;
 
 public class Footwork : MonoBehaviour
 {
-    [SerializeField, EventID] private string eventId = "";
+    [SerializeField, EventID] private string eventId = "", eventId2 = "";
     public List<Renderer> allSteps;
     public List<Renderer> leftSteps, rightSteps;
     public GameObject leftStepPrefab, rightStepPrefab;
-    public bool linear = true;
     public bool isPlaying = false;
     public bool isPaused = false;
+    [HideInInspector]public bool linear = true;
     [SerializeField] private Koreographer koreographer;
     [SerializeField] private MultiMusicPlayer multiMusicPlayer;
-    [SerializeField] private Material leftStepOff, leftStepOn, rightStepOff, rightStepOn;
-    [SerializeField] private float callbackError = 0.01f;
+    [SerializeField] private Material leftStepOff, leftStepOn, rightStepOff, rightStepOn, leftStepEmpty, rightStepEmpty;
     [SerializeField] private bool PlayOnStart = false;
+    private float callbackError = 0.05f;
     private float lastLeftFootCallBackTime = 0f, lastRightFootCallBackTime = 0f;
     private int currentLeftStep = 0, currentRightStep = 0;
     private Vector3 originalStepScale = new Vector3(0.817920864f, 1.96672571f, 2.51049995f);
@@ -55,41 +55,93 @@ public class Footwork : MonoBehaviour
 
     private void OnEnable()
     {
-        for (int i = 0; i < leftSteps.Count; i++)
+        if (linear)
         {
-            leftSteps[i].material = leftStepOff;
-            leftSteps[i].transform.localScale = originalStepScale;
+            koreographer.RegisterForEvents(eventId, LinearCallBack);
+            for (int i = 0; i < leftSteps.Count; i++)
+            {
+                leftSteps[i].material = leftStepOff;
+                leftSteps[i].transform.localScale = originalStepScale;
+            }
+            for (int i = 0; i < rightSteps.Count; i++)
+            {
+                rightSteps[i].material = rightStepOff;
+                rightSteps[i].transform.localScale = originalStepScale;
+            }
         }
-        for (int i = 0; i < rightSteps.Count; i++)
+        else
         {
-            rightSteps[i].material = rightStepOff;
-            rightSteps[i].transform.localScale = originalStepScale;
+            koreographer.RegisterForEvents(eventId, LeftFootCallBack);
+            koreographer.RegisterForEvents(eventId2, RightFootCallBack);
+            for (int i = 0; i < leftSteps.Count; i++)
+            {
+                leftSteps[i].material = leftStepEmptyMat;
+                leftSteps[i].transform.localScale = originalStepScale;
+            }
+            for (int i = 0; i < rightSteps.Count; i++)
+            {
+                rightSteps[i].material = rightStepEmptyMat;
+                rightSteps[i].transform.localScale = originalStepScale;
+            }
         }
+
         if (PlayOnStart)
         {
+            currentLeftStep += 1;
+            currentRightStep += 1;
             Play();
         }
     }
 
+    private void OnDisable()
+    {
+        koreographer.UnregisterForAllEvents(this);
+    }
+
     public void Play()
     {
-        for (int i = 0; i < leftSteps.Count; i++)
+        if (linear)
         {
-            leftSteps[i].material = leftStepOff;
-            leftSteps[i].transform.localScale = originalStepScale;
+            for (int i = 0; i < leftSteps.Count; i++)
+            {
+                leftSteps[i].material = leftStepOff;
+                leftSteps[i].transform.localScale = originalStepScale;
+            }
+            for (int i = 0; i < rightSteps.Count; i++)
+            {
+                rightSteps[i].material = rightStepOff;
+                rightSteps[i].transform.localScale = originalStepScale;
+            }
         }
-        for (int i = 0; i < rightSteps.Count; i++)
+        else
         {
-            rightSteps[i].material = rightStepOff;
-            rightSteps[i].transform.localScale = originalStepScale;
+            if (leftSteps[0].CompareTag("On"))
+            {
+                leftSteps[0].material = leftStepOn;
+            }
+            else if (leftSteps[0].CompareTag("In"))
+            {
+                leftSteps[0].material = leftStepOff;
+            }
+            else if (leftSteps[0].CompareTag("Off"))
+            {
+                leftSteps[0].material = leftStepEmpty;
+            }
+
+            if (rightSteps[0].CompareTag("On"))
+            {
+                rightSteps[0].material = rightStepOn;
+            }
+            else if (rightSteps[0].CompareTag("In"))
+            {
+                rightSteps[0].material = rightStepOff;
+            }
+            else if (rightSteps[0].CompareTag("Off"))
+            {
+                rightSteps[0].material = rightStepEmpty;
+            }
         }
 
-        if (allSteps[0].CompareTag("On"))
-        {
-            allSteps[0].material = allSteps[0].material.name.Contains("left") ? leftStepOn : rightStepOn;
-        }
-
-        koreographer.RegisterForEvents(eventId, leftFootCallBack);
         multiMusicPlayer.Play();
     }
 
@@ -97,7 +149,6 @@ public class Footwork : MonoBehaviour
     {
         currentLeftStep = 0;
         lastLeftFootCallBackTime = callbackError;
-        koreographer.UnregisterForAllEvents(this);
         multiMusicPlayer.Stop();
     }
 
@@ -111,7 +162,7 @@ public class Footwork : MonoBehaviour
         multiMusicPlayer.Play();
     }
 
-    private void leftFootCallBack(KoreographyEvent e)
+    private void LinearCallBack(KoreographyEvent e)
     {
         if (allSteps.Count <= 0)
         {
@@ -149,6 +200,82 @@ public class Footwork : MonoBehaviour
             currentLeftStep = currentLeftStep == allSteps.Count - 1 ? 0 : currentLeftStep + 1;
         }
         lastLeftFootCallBackTime = Time.time;
+    }
+
+    private void LeftFootCallBack(KoreographyEvent e)
+    {
+        if (leftSteps.Count <= 0)
+        {
+            return;
+        }
+        if (Time.time - lastLeftFootCallBackTime <= callbackError)
+        {
+            lastLeftFootCallBackTime = Time.time;
+            return;
+        }
+        else
+        {
+            for (int i = 0; i < leftSteps.Count; i++)
+            {
+                leftSteps[i].material = leftStepEmpty;
+            }
+            if (leftSteps[currentLeftStep].CompareTag("On"))
+            {
+                leftSteps[currentLeftStep].material = leftStepOn;
+            }
+            else if (leftSteps[currentLeftStep].CompareTag("In"))
+            {
+                leftSteps[currentLeftStep].material = leftStepOff;
+            }
+            currentLeftStep = currentLeftStep == leftSteps.Count - 1 ? 0 : currentLeftStep + 1;
+        }
+        lastLeftFootCallBackTime = Time.time;
+    }
+
+    private void RightFootCallBack(KoreographyEvent e)
+    {
+        if (rightSteps.Count <= 0)
+        {
+            return;
+        }
+        if (Time.time - lastRightFootCallBackTime <= callbackError)
+        {
+            lastRightFootCallBackTime = Time.time;
+            return;
+        }
+        else
+        {
+            for (int i = 0; i < rightSteps.Count; i++)
+            {
+                rightSteps[i].material = rightStepEmpty;
+            }
+            if (rightSteps[currentRightStep].CompareTag("On"))
+            {
+                rightSteps[currentRightStep].material = rightStepOn;
+            }
+            else if (rightSteps[currentRightStep].CompareTag("In"))
+            {
+                rightSteps[currentRightStep].material = rightStepOff;
+            }
+            currentRightStep = currentRightStep == rightSteps.Count - 1 ? 0 : currentRightStep + 1;
+        }
+        lastRightFootCallBackTime = Time.time;
+    }
+
+    public Material leftStepEmptyMat
+    {
+        get
+        {
+            return leftStepEmpty;
+        }
+    }
+
+    public Material rightStepEmptyMat
+    {
+        get
+        {
+            return rightStepEmpty;
+        }
     }
 
     public Material leftStepOffMat
