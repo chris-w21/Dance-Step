@@ -315,6 +315,7 @@ public class FootworkPatternEditor : Editor
                     if (footwork.leftSteps[i].gameObject.activeSelf)
                     {
                         Handles.Label(footwork.leftSteps[i].transform.position + Vector3.forward * 0.35f - Vector3.right * 0.05f, (i + 1).ToString(), style);
+                        footwork.leftSteps[i].name = i + " ( Left " + footwork.leftSteps[i].tag + " )";
                     }
                 }
             }
@@ -335,6 +336,7 @@ public class FootworkPatternEditor : Editor
                     if (footwork.rightSteps[i].gameObject.activeSelf)
                     {
                         Handles.Label(footwork.rightSteps[i].transform.position + Vector3.forward * 0.35f - Vector3.right * 0.05f, (i + 1).ToString(), style);
+                        footwork.rightSteps[i].name = i + " ( Right " + footwork.rightSteps[i].tag + " )";
                     }
                 }
             }
