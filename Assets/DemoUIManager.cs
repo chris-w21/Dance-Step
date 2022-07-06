@@ -9,8 +9,6 @@ public class DemoUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject salsaObject, bachataObject;
 
-    [SerializeField] private Footwork bachataFootwork;
-
     [SerializeField] private Toggle[] instrumentToggles;
 
     [SerializeField] private Transform instrumentTogglesContent;
@@ -26,6 +24,8 @@ public class DemoUIManager : MonoBehaviour
 
     public Footwork[] footworks;
 
+    private int lastSelectedSalsaFootwork = 0;
+
     private int selectedFootwork;
 
     private bool isPlaying = false;
@@ -37,31 +37,30 @@ public class DemoUIManager : MonoBehaviour
         UpdateToggles();
     }
 
-    public void ChangeStyle(bool _salsa)
+    public void ChangeStyle(int _salsa)
     {
-        if (_salsa)
+        footworks[selectedFootwork].Stop();
+        if (_salsa == 0)
         {
             if (!salsa)
             {
-                TogglePlaying();
-                bachataFootwork.Stop();
+                selectedFootwork = lastSelectedSalsaFootwork;
                 bachataObject.SetActive(false);
                 salsaObject.SetActive(true);
                 salsa = true;
             }
         }
-        else
+        else if (_salsa == 1)
         {
-            Debug.Log("Hi");
             if (salsa)
             {
-                TogglePlaying();
-                footworks[selectedFootwork].Stop();
+                selectedFootwork = footworks.Length - 1;
                 salsaObject.SetActive(false);
                 bachataObject.SetActive(true);
                 salsa = false;
             }
         }
+        UpdateToggles();
     }
 
     public void ChangeType(int i)
@@ -197,7 +196,7 @@ public class DemoUIManager : MonoBehaviour
         //    footworks[i].Stop();
         //    footworks[i].gameObject.SetActive(false);
         //}
-
+        lastSelectedSalsaFootwork = selectedFootwork;
         footworks[selectedFootwork].gameObject.SetActive(true);
         UpdateToggles();
         toggle.isOn = true;
@@ -227,7 +226,7 @@ public class DemoUIManager : MonoBehaviour
                 {
                     ToggleInstrument(instrumentToggles[a].isOn, sources[a]);
                 });
-                instrumentToggles[i].GetComponentInChildren<TextMeshProUGUI>().text = sources[i].clip.name.Remove(0, 6);
+                instrumentToggles[i].GetComponentInChildren<TextMeshProUGUI>().text = sources[i].clip.name;
             }
         }
     }
@@ -239,47 +238,23 @@ public class DemoUIManager : MonoBehaviour
 
     public void TogglePlaying()
     {
-        if (salsa)
+        isPlaying = !isPlaying;
+        if (isPlaying)
         {
-            isPlaying = !isPlaying;
-            if (isPlaying)
+            if (footworks[selectedFootwork].isPlaying)
             {
-                if (footworks[selectedFootwork].isPlaying)
-                {
-                    footworks[selectedFootwork].Unpause();
-                }
-                else
-                {
-                    footworks[selectedFootwork].Play();
-                }
-                isPlaying = true;
+                footworks[selectedFootwork].Unpause();
             }
             else
             {
-                footworks[selectedFootwork].Pause();
-                isPlaying = false;
+                footworks[selectedFootwork].Play();
             }
+            isPlaying = true;
         }
         else
         {
-            isPlaying = !isPlaying;
-            if (isPlaying)
-            {
-                if (bachataFootwork.isPlaying)
-                {
-                    bachataFootwork.Unpause();
-                }
-                else
-                {
-                    bachataFootwork.Play();
-                }
-                isPlaying = true;
-            }
-            else
-            {
-                bachataFootwork.Pause();
-                isPlaying = false;
-            }
+            footworks[selectedFootwork].Pause();
+            isPlaying = false;
         }
     }
 }

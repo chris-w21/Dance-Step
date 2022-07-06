@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mEventID: bachata 115 track right
   mEventList:
+  - mStartSample: 0
+    mEndSample: 0
   - mStartSample: 23008
     mEndSample: 23008
   - mStartSample: 57564

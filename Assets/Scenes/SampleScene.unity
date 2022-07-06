@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3926,7 +3926,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   salsaObject: {fileID: 700605169}
   bachataObject: {fileID: 1479611042}
-  bachataFootwork: {fileID: 1479611046}
   instrumentToggles: []
   instrumentTogglesContent: {fileID: 1014509428}
   instrumentTogglePrefab: {fileID: 7060530130906608489, guid: 7cf4787c5a59d4c7b8c4efec8e81b8a1, type: 3}
@@ -3951,6 +3950,7 @@ MonoBehaviour:
   - {fileID: 1751935663}
   - {fileID: 1339321487}
   - {fileID: 972941354}
+  - {fileID: 1479611046}
 --- !u!1 &321742275
 GameObject:
   m_ObjectHideFlags: 0
@@ -17996,7 +17996,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -18101,6 +18101,26 @@ MonoBehaviour:
     koreography: {fileID: 11400000, guid: ff8f411ecfb874c1aba792d24a7f451d, type: 2}
     audioClip: {fileID: 0}
     audioSource: {fileID: 1479611043}
+  - name: 
+    koreography: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 323df974c59702642b0f8a712f203957, type: 3}
+    audioSource: {fileID: 0}
+  - name: 
+    koreography: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 02989bc6dd0fc294c9195b1fc480ee5c, type: 3}
+    audioSource: {fileID: 0}
+  - name: 
+    koreography: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 56ed0c6d11ac29f40954f967deb13e22, type: 3}
+    audioSource: {fileID: 0}
+  - name: 
+    koreography: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: ba472962272cff1498b5f12365f772b0, type: 3}
+    audioSource: {fileID: 0}
+  - name: 
+    koreography: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 48ed0de91b6ce4a46aef0bfd7cb1c59f, type: 3}
+    audioSource: {fileID: 0}
   targetKoreographer: {fileID: 0}
 --- !u!114 &1479611045
 MonoBehaviour:
@@ -27755,7 +27775,7 @@ MonoBehaviour:
       - m_Target: {fileID: 318003756}
         m_TargetAssemblyTypeName: DemoUIManager, Assembly-CSharp
         m_MethodName: ChangeStyle
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -27763,18 +27783,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 318003756}
-        m_TargetAssemblyTypeName: DemoUIManager, Assembly-CSharp
-        m_MethodName: ChangeStyle
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &2119064621
