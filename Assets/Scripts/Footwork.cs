@@ -115,30 +115,32 @@ public class Footwork : MonoBehaviour
         }
         else
         {
-            if (leftSteps[0].CompareTag("On"))
+            if (PlayOnStart)
             {
-                leftSteps[0].material = leftStepOn;
-            }
-            else if (leftSteps[0].CompareTag("In"))
-            {
-                leftSteps[0].material = leftStepOff;
-            }
-            else if (leftSteps[0].CompareTag("Off"))
-            {
-                leftSteps[0].material = leftStepEmpty;
-            }
-
-            if (rightSteps[0].CompareTag("On"))
-            {
-                rightSteps[0].material = rightStepOn;
-            }
-            else if (rightSteps[0].CompareTag("In"))
-            {
-                rightSteps[0].material = rightStepOff;
-            }
-            else if (rightSteps[0].CompareTag("Off"))
-            {
-                rightSteps[0].material = rightStepEmpty;
+                if (leftSteps[0].CompareTag("On"))
+                {
+                    leftSteps[0].material = leftStepOn;
+                }
+                else if (leftSteps[0].CompareTag("In"))
+                {
+                    leftSteps[0].material = leftStepOff;
+                }
+                else if (leftSteps[0].CompareTag("Off"))
+                {
+                    leftSteps[0].material = leftStepEmpty;
+                }
+                if (rightSteps[0].CompareTag("On"))
+                {
+                    rightSteps[0].material = rightStepOn;
+                }
+                else if (rightSteps[0].CompareTag("In"))
+                {
+                    rightSteps[0].material = rightStepOff;
+                }
+                else if (rightSteps[0].CompareTag("Off"))
+                {
+                    rightSteps[0].material = rightStepEmpty;
+                }
             }
         }
 
@@ -164,6 +166,8 @@ public class Footwork : MonoBehaviour
 
     private void LinearCallBack(KoreographyEvent e)
     {
+        Debug.Log("Hi");
+
         if (allSteps.Count <= 0)
         {
             return;

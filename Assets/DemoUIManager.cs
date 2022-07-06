@@ -7,6 +7,10 @@ using UnityEngine.EventSystems;
 
 public class DemoUIManager : MonoBehaviour
 {
+    [SerializeField] private GameObject salsaObject, bachataObject;
+
+    [SerializeField] private Footwork bachataFootwork;
+
     [SerializeField] private Toggle[] instrumentToggles;
 
     [SerializeField] private Transform instrumentTogglesContent;
@@ -26,9 +30,38 @@ public class DemoUIManager : MonoBehaviour
 
     private bool isPlaying = false;
 
+    private bool salsa = true;
+
     private void Start()
     {
         UpdateToggles();
+    }
+
+    public void ChangeStyle(bool _salsa)
+    {
+        if (_salsa)
+        {
+            if (!salsa)
+            {
+                TogglePlaying();
+                bachataFootwork.Stop();
+                bachataObject.SetActive(false);
+                salsaObject.SetActive(true);
+                salsa = true;
+            }
+        }
+        else
+        {
+            Debug.Log("Hi");
+            if (salsa)
+            {
+                TogglePlaying();
+                footworks[selectedFootwork].Stop();
+                salsaObject.SetActive(false);
+                bachataObject.SetActive(true);
+                salsa = false;
+            }
+        }
     }
 
     public void ChangeType(int i)
@@ -206,23 +239,47 @@ public class DemoUIManager : MonoBehaviour
 
     public void TogglePlaying()
     {
-        isPlaying = !isPlaying;
-        if (isPlaying)
+        if (salsa)
         {
-            if (footworks[selectedFootwork].isPlaying)
+            isPlaying = !isPlaying;
+            if (isPlaying)
             {
-                footworks[selectedFootwork].Unpause();
+                if (footworks[selectedFootwork].isPlaying)
+                {
+                    footworks[selectedFootwork].Unpause();
+                }
+                else
+                {
+                    footworks[selectedFootwork].Play();
+                }
+                isPlaying = true;
             }
             else
             {
-                footworks[selectedFootwork].Play();
+                footworks[selectedFootwork].Pause();
+                isPlaying = false;
             }
-            isPlaying = true;
         }
         else
         {
-            footworks[selectedFootwork].Pause();
-            isPlaying = false;
+            isPlaying = !isPlaying;
+            if (isPlaying)
+            {
+                if (bachataFootwork.isPlaying)
+                {
+                    bachataFootwork.Unpause();
+                }
+                else
+                {
+                    bachataFootwork.Play();
+                }
+                isPlaying = true;
+            }
+            else
+            {
+                bachataFootwork.Pause();
+                isPlaying = false;
+            }
         }
     }
 }
