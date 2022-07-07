@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
-
 [CustomEditor(typeof(Footwork))]
 public class FootworkPatternEditor : Editor
 {
@@ -696,3 +696,9 @@ public class FootworkPatternEditor : Editor
         On, In, Off
     }
 }
+#else
+public class FootworkPatternEditor
+{
+
+}
+#endif

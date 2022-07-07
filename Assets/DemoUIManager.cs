@@ -54,7 +54,7 @@ public class DemoUIManager : MonoBehaviour
         {
             if (salsa)
             {
-                selectedFootwork = footworks.Length - 1;
+                selectedFootwork = footworks.Length - 2;
                 salsaObject.SetActive(false);
                 bachataObject.SetActive(true);
                 salsa = false;
@@ -92,114 +92,160 @@ public class DemoUIManager : MonoBehaviour
 
         footworks[selectedFootwork].Stop();
         footworks[selectedFootwork].gameObject.SetActive(false);
-        switch (type)
+        if (salsa)
         {
-            case Type.Basic:
-                switch (role)
-                {
-                    case Role.Lead:
-                        switch (timing)
-                        {
-                            case Timing.On1:
-                                switch (bpm)
-                                {
-                                    case BPM.BPM80:
-                                        selectedFootwork = 0;
-                                        break;
-                                    case BPM.BPM90:
-                                        selectedFootwork = 1;
-                                        break;
-                                    case BPM.BPM100:
-                                        selectedFootwork = 2;
-                                        break;
-                                }
-                                break;
-                            case Timing.On2:
-                                switch (bpm)
-                                {
-                                    case BPM.BPM80:
-                                        selectedFootwork = 3;
-                                        break;
-                                    case BPM.BPM90:
-                                        selectedFootwork = 4;
-                                        break;
-                                    case BPM.BPM100:
-                                        selectedFootwork = 5;
-                                        break;
-                                }
-                                break;
-                        }
-                        break;
-                    case Role.Follow:
-                        switch (timing)
-                        {
-                            case Timing.On1:
-                                switch (bpm)
-                                {
-                                    case BPM.BPM80:
-                                        selectedFootwork = 6;
-                                        break;
-                                    case BPM.BPM90:
-                                        selectedFootwork = 7;
-                                        break;
-                                    case BPM.BPM100:
-                                        selectedFootwork = 8;
-                                        break;
-                                }
-                                break;
-                            case Timing.On2:
-                                switch (bpm)
-                                {
-                                    case BPM.BPM80:
-                                        selectedFootwork = 9;
-                                        break;
-                                    case BPM.BPM90:
-                                        selectedFootwork = 10;
-                                        break;
-                                    case BPM.BPM100:
-                                        selectedFootwork = 11;
-                                        break;
-                                }
-                                break;
-                        }
-                        break;
-                }
-                break;
-            case Type.SideBasic:
-                switch (role)
-                {
-                    default:
-                        switch (timing)
-                        {
-                            default:
-                                switch (bpm)
-                                {
-                                    case BPM.BPM80:
-                                        selectedFootwork = 12;
-                                        break;
-                                    case BPM.BPM90:
-                                        selectedFootwork = 13;
-                                        break;
-                                    case BPM.BPM100:
-                                        selectedFootwork = 14;
-                                        break;
-                                }
-                                break;
-                        }
-                        break;
-                }
-                break;
+            switch (type)
+            {
+                case Type.Basic:
+                    switch (role)
+                    {
+                        case Role.Lead:
+                            switch (timing)
+                            {
+                                case Timing.On1:
+                                    switch (bpm)
+                                    {
+                                        case BPM.Slow:
+                                            selectedFootwork = 0;
+                                            break;
+                                        case BPM.Normal:
+                                            selectedFootwork = 1;
+                                            break;
+                                        case BPM.Fast:
+                                            selectedFootwork = 2;
+                                            break;
+                                    }
+                                    break;
+                                case Timing.On2:
+                                    switch (bpm)
+                                    {
+                                        case BPM.Slow:
+                                            selectedFootwork = 3;
+                                            break;
+                                        case BPM.Normal:
+                                            selectedFootwork = 4;
+                                            break;
+                                        case BPM.Fast:
+                                            selectedFootwork = 5;
+                                            break;
+                                    }
+                                    break;
+                            }
+                            break;
+                        case Role.Follow:
+                            switch (timing)
+                            {
+                                case Timing.On1:
+                                    switch (bpm)
+                                    {
+                                        case BPM.Slow:
+                                            selectedFootwork = 6;
+                                            break;
+                                        case BPM.Normal:
+                                            selectedFootwork = 7;
+                                            break;
+                                        case BPM.Fast:
+                                            selectedFootwork = 8;
+                                            break;
+                                    }
+                                    break;
+                                case Timing.On2:
+                                    switch (bpm)
+                                    {
+                                        case BPM.Slow:
+                                            selectedFootwork = 9;
+                                            break;
+                                        case BPM.Normal:
+                                            selectedFootwork = 10;
+                                            break;
+                                        case BPM.Fast:
+                                            selectedFootwork = 11;
+                                            break;
+                                    }
+                                    break;
+                            }
+                            break;
+                    }
+                    break;
+                case Type.SideBasic:
+                    switch (role)
+                    {
+                        default:
+                            switch (timing)
+                            {
+                                default:
+                                    switch (bpm)
+                                    {
+                                        case BPM.Slow:
+                                            selectedFootwork = 12;
+                                            break;
+                                        case BPM.Normal:
+                                            selectedFootwork = 13;
+                                            break;
+                                        case BPM.Fast:
+                                            selectedFootwork = 14;
+                                            break;
+                                    }
+                                    break;
+                            }
+                            break;
+                    }
+                    break;
+            }
         }
-
-        //for (int i = 0; i < footworks.Length; i++)
-        //{
-        //    footworks[i].Stop();
-        //    footworks[i].gameObject.SetActive(false);
-        //}
-        lastSelectedSalsaFootwork = selectedFootwork;
-        footworks[selectedFootwork].gameObject.SetActive(true);
-        UpdateToggles();
-        toggle.isOn = true;
+        else
+        {
+            switch (role)
+            {
+                case Role.Lead:
+                    switch (timing)
+                    {
+                        case Timing.On1:
+                            switch (bpm)
+                            {
+                                case BPM.Slow:
+                                    selectedFootwork = footworks.Length - 2;
+                                    break;
+                                case BPM.Normal:
+                                    selectedFootwork = footworks.Length - 1;
+                                    break;
+                                case BPM.Fast:
+                                    selectedFootwork = footworks.Length;
+                                    break;
+                            }
+                            break;
+                    }
+                    break;
+                case Role.Follow:
+                    switch (timing)
+                    {
+                        case Timing.On1:
+                            switch (bpm)
+                            {
+                                case BPM.Slow:
+                                    selectedFootwork = footworks.Length - 1 + 3;
+                                    break;
+                                case BPM.Normal:
+                                    selectedFootwork = footworks.Length - 1 + 4;
+                                    break;
+                                case BPM.Fast:
+                                    selectedFootwork = footworks.Length - 1 + 5;
+                                    break;
+                            }
+                            break;
+                    }
+                    break;
+            }
+            //for (int i = 0; i < footworks.Length; i++)
+            //{
+            //    footworks[i].Stop();
+            //    footworks[i].gameObject.SetActive(false);
+            //}
+            lastSelectedSalsaFootwork = selectedFootwork;
+            footworks[selectedFootwork].gameObject.SetActive(true);
+            UpdateToggles();
+            toggle.isOn = true;
+        }
     }
 
     private void UpdateToggles()
@@ -280,5 +326,5 @@ public enum Timing
 [System.Serializable]
 public enum BPM
 {
-    BPM80, BPM90, BPM100
+    Slow, Normal, Fast
 }
