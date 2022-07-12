@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: -2076007791, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
   m_Name: Bachata 125
   m_EditorClassIdentifier: 
-  mSourceClip: {fileID: 8300000, guid: cd8fc42f2013d0b4c89896ada0145c48, type: 3}
+  mSourceClip: {fileID: 8300000, guid: 4f276904b77ca46e7b716d4aa24de999, type: 3}
   mAudioFilePath: 
   mSampleRate: 44100
   mIgnoreLatencyOffset: 0
@@ -27,3 +27,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7287feb082461480db3709257815c1a0, type: 2}
   - {fileID: 11400000, guid: ff0c49f968fbd46608034bc632e2bdc5, type: 2}
   - {fileID: 11400000, guid: 20d032034a23242ed874e4e1f5dc0e68, type: 2}
+  - {fileID: 11400000, guid: 6a404e99726c04a44b9d1c7f29ceb1da, type: 2}

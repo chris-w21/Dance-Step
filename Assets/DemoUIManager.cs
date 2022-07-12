@@ -241,11 +241,11 @@ public class DemoUIManager : MonoBehaviour
             //    footworks[i].Stop();
             //    footworks[i].gameObject.SetActive(false);
             //}
-            lastSelectedSalsaFootwork = selectedFootwork;
-            footworks[selectedFootwork].gameObject.SetActive(true);
-            UpdateToggles();
-            toggle.isOn = true;
         }
+        lastSelectedSalsaFootwork = selectedFootwork;
+        footworks[selectedFootwork].gameObject.SetActive(true);
+        UpdateToggles();
+        toggle.isOn = true;
     }
 
     private void UpdateToggles()
@@ -263,7 +263,7 @@ public class DemoUIManager : MonoBehaviour
         instrumentToggles = new Toggle[sources.Length];
         for (int i = 0; i < instrumentToggles.Length; i++)
         {
-            if (sources[i].volume != 0f)
+            if (i > 1)
             {
                 instrumentToggles[i] = Instantiate(instrumentTogglePrefab, instrumentTogglesContent);
                 var a = i;

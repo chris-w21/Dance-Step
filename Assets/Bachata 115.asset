@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: -2076007791, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
   m_Name: Bachata 115
   m_EditorClassIdentifier: 
-  mSourceClip: {fileID: 8300000, guid: 68b04cd6228ef8140816bba5f78b5c64, type: 3}
+  mSourceClip: {fileID: 8300000, guid: 8425a14155669497a9374d89fa65cbea, type: 3}
   mAudioFilePath: 
   mSampleRate: 44100
   mIgnoreLatencyOffset: 0
   mTempoSections:
   - sectionName: New Section
     startSample: 0
-    samplesPerBeat: 21168
+    samplesPerBeat: 23008.695652173912
     beatsPerMeasure: 2
     bStartNewMeasure: 1
   mTracks:
@@ -27,3 +27,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7287feb082461480db3709257815c1a0, type: 2}
   - {fileID: 11400000, guid: ff0c49f968fbd46608034bc632e2bdc5, type: 2}
   - {fileID: 11400000, guid: 20d032034a23242ed874e4e1f5dc0e68, type: 2}
+  - {fileID: 11400000, guid: bc623d3f985a245af9440774363b0aa5, type: 2}

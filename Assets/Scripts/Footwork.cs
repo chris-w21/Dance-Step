@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using SonicBloom.Koreo.Players;
 using SonicBloom.Koreo;
 using SonicBloom;
@@ -8,20 +9,25 @@ using SonicBloom;
 public class Footwork : MonoBehaviour
 {
     [SerializeField, EventID] private string eventId = "", eventId2 = "";
+    [SerializeField, EventID] private string vocalsEventId = "";
     public List<Renderer> allSteps;
     public List<Renderer> leftSteps, rightSteps;
     public GameObject leftStepPrefab, rightStepPrefab;
     public bool isPlaying = false;
     public bool isPaused = false;
     [HideInInspector]public bool linear = true;
+    [SerializeField] private Toggle[] vocalToggles;
+    [SerializeField] private Image[] vocalIndicators;
+    [SerializeField] private AudioSource vocalsAudioSource;
     [SerializeField] private Koreographer koreographer;
     [SerializeField] private MultiMusicPlayer multiMusicPlayer;
     [SerializeField] private Material leftStepOff, leftStepOn, rightStepOff, rightStepOn, leftStepEmpty, rightStepEmpty;
     [SerializeField] private bool PlayOnStart = false;
-    private float callbackError = 0.05f;
-    private float lastLeftFootCallBackTime = 0f, lastRightFootCallBackTime = 0f;
-    private int currentLeftStep = 0, currentRightStep = 0;
     private Vector3 originalStepScale = new Vector3(0.817920864f, 1.96672571f, 2.51049995f);
+    private float callbackError = 0.05f;
+    private float lastLeftFootCallBackTime = 0f, lastRightFootCallBackTime = 0f, lastVocalCallBackTime = 0f;
+    private int currentLeftStep = 0, currentRightStep = 0;
+    private int currentVocal = 0;
     
     private void Update()
     {
@@ -58,6 +64,7 @@ public class Footwork : MonoBehaviour
         if (linear)
         {
             koreographer.RegisterForEvents(eventId, LinearCallBack);
+            koreographer.RegisterForEvents(vocalsEventId, VocalCallBack);
             for (int i = 0; i < leftSteps.Count; i++)
             {
                 leftSteps[i].material = leftStepOff;
@@ -73,6 +80,7 @@ public class Footwork : MonoBehaviour
         {
             koreographer.RegisterForEvents(eventId, LeftFootCallBack);
             koreographer.RegisterForEvents(eventId2, RightFootCallBack);
+            koreographer.RegisterForEvents(vocalsEventId, VocalCallBack);
             for (int i = 0; i < leftSteps.Count; i++)
             {
                 leftSteps[i].material = leftStepEmptyMat;
@@ -114,6 +122,7 @@ public class Footwork : MonoBehaviour
         {
             currentLeftStep += 1;
             currentRightStep += 1;
+            currentVocal += 1;
             Play();
         }
     }
@@ -176,8 +185,10 @@ public class Footwork : MonoBehaviour
     {
         currentLeftStep = 0;
         currentRightStep = 0;
+        currentVocal = 0;
         lastLeftFootCallBackTime = callbackError;
         lastRightFootCallBackTime = callbackError;
+        lastVocalCallBackTime = callbackError;
         multiMusicPlayer.Stop();
     }
 
@@ -289,6 +300,37 @@ public class Footwork : MonoBehaviour
             currentRightStep = currentRightStep == rightSteps.Count - 1 ? 0 : currentRightStep + 1;
         }
         lastRightFootCallBackTime = Time.time;
+    }
+
+    private void VocalCallBack(KoreographyEvent e)
+    {
+        if (vocalToggles.Length <= 0)
+        {
+            return;
+        }
+        if (Time.time - lastVocalCallBackTime <= callbackError)
+        {
+            lastVocalCallBackTime = Time.time;
+            return;
+        }
+        else
+        {
+            for (int i = 0; i < vocalIndicators.Length; i++)
+            {
+                vocalIndicators[i].enabled = false;
+            }
+            if (vocalToggles[currentVocal].isOn)
+            {
+                vocalsAudioSource.volume = 1f;
+                vocalIndicators[currentVocal].enabled = true;
+            }
+            else
+            {
+                vocalsAudioSource.volume = 0f;
+            }
+            currentVocal = currentVocal == vocalToggles.Length - 1 ? 0 : currentVocal + 1;
+        }
+        lastVocalCallBackTime = Time.time;
     }
 
     public Material leftStepEmptyMat
