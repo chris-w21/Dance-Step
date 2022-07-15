@@ -16,36 +16,68 @@ MonoBehaviour:
   mEventList:
   - mStartSample: 0
     mEndSample: 0
+  - mStartSample: 14700
+    mEndSample: 14700
   - mStartSample: 29400
     mEndSample: 29400
+  - mStartSample: 44100
+    mEndSample: 44100
   - mStartSample: 58800
     mEndSample: 58800
+  - mStartSample: 73500
+    mEndSample: 73500
   - mStartSample: 88200
     mEndSample: 88200
+  - mStartSample: 102900
+    mEndSample: 102900
   - mStartSample: 117600
     mEndSample: 117600
+  - mStartSample: 132300
+    mEndSample: 132300
   - mStartSample: 147000
     mEndSample: 147000
+  - mStartSample: 161700
+    mEndSample: 161700
   - mStartSample: 176400
     mEndSample: 176400
+  - mStartSample: 191100
+    mEndSample: 191100
   - mStartSample: 205800
     mEndSample: 205800
+  - mStartSample: 220500
+    mEndSample: 220500
   - mStartSample: 235200
     mEndSample: 235200
+  - mStartSample: 249900
+    mEndSample: 249900
   - mStartSample: 264600
     mEndSample: 264600
+  - mStartSample: 279300
+    mEndSample: 279300
   - mStartSample: 294000
     mEndSample: 294000
+  - mStartSample: 308700
+    mEndSample: 308700
   - mStartSample: 323400
     mEndSample: 323400
+  - mStartSample: 338100
+    mEndSample: 338100
   - mStartSample: 352800
     mEndSample: 352800
+  - mStartSample: 367500
+    mEndSample: 367500
   - mStartSample: 382200
     mEndSample: 382200
+  - mStartSample: 396900
+    mEndSample: 396900
   - mStartSample: 411600
     mEndSample: 411600
+  - mStartSample: 426300
+    mEndSample: 426300
   - mStartSample: 441000
     mEndSample: 441000
+  - mStartSample: 455700
+    mEndSample: 455700
   _SerializedPayloadTypes: []
   _ColorPayloads: []
   _ColorPayloadIdxs: 

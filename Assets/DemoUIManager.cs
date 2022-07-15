@@ -9,11 +9,11 @@ public class DemoUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject salsaObject, bachataObject;
 
-    [SerializeField] private Toggle[] instrumentToggles;
+    [SerializeField] private Slider[] instrumentVolumeSliders;
 
-    [SerializeField] private Transform instrumentTogglesContent;
+    [SerializeField] private Transform instrumentVolumeSlidersContent;
 
-    [SerializeField] private Toggle instrumentTogglePrefab;
+    [SerializeField] private Slider instrumentVolumeSliderPrefab;
 
     public Type type;
     public Role role;
@@ -54,7 +54,7 @@ public class DemoUIManager : MonoBehaviour
         {
             if (salsa)
             {
-                selectedFootwork = footworks.Length - 2;
+                selectedFootwork = 15;
                 salsaObject.SetActive(false);
                 bachataObject.SetActive(true);
                 salsa = false;
@@ -198,40 +198,30 @@ public class DemoUIManager : MonoBehaviour
             switch (role)
             {
                 case Role.Lead:
-                    switch (timing)
+                    switch (bpm)
                     {
-                        case Timing.On1:
-                            switch (bpm)
-                            {
-                                case BPM.Slow:
-                                    selectedFootwork = footworks.Length - 2;
-                                    break;
-                                case BPM.Normal:
-                                    selectedFootwork = footworks.Length - 1;
-                                    break;
-                                case BPM.Fast:
-                                    selectedFootwork = footworks.Length;
-                                    break;
-                            }
+                        case BPM.Slow:
+                            selectedFootwork = 15;
+                            break;
+                        case BPM.Normal:
+                            selectedFootwork = 16;
+                            break;
+                        case BPM.Fast:
+                            selectedFootwork = 17;
                             break;
                     }
                     break;
                 case Role.Follow:
-                    switch (timing)
+                    switch (bpm)
                     {
-                        case Timing.On1:
-                            switch (bpm)
-                            {
-                                case BPM.Slow:
-                                    selectedFootwork = footworks.Length - 1 + 3;
-                                    break;
-                                case BPM.Normal:
-                                    selectedFootwork = footworks.Length - 1 + 4;
-                                    break;
-                                case BPM.Fast:
-                                    selectedFootwork = footworks.Length - 1 + 5;
-                                    break;
-                            }
+                        case BPM.Slow:
+                            selectedFootwork = 18;
+                            break;
+                        case BPM.Normal:
+                            selectedFootwork = 19;
+                            break;
+                        case BPM.Fast:
+                            selectedFootwork = 20;
                             break;
                     }
                     break;
@@ -250,36 +240,40 @@ public class DemoUIManager : MonoBehaviour
 
     private void UpdateToggles()
     {
-        for (int i = 0; i < instrumentToggles.Length; i++)
+        for (int i = 0; i < instrumentVolumeSliders.Length; i++)
         {
-            if (instrumentToggles[i])
+            if (instrumentVolumeSliders[i])
             {
-                Destroy(instrumentToggles[i].gameObject);
+                Destroy(instrumentVolumeSliders[i].gameObject);
             }
         }
 
         AudioSource[] sources = footworks[selectedFootwork].GetComponents<AudioSource>();
 
-        instrumentToggles = new Toggle[sources.Length];
-        for (int i = 0; i < instrumentToggles.Length; i++)
+        instrumentVolumeSliders = new Slider[sources.Length];
+        for (int i = 0; i < instrumentVolumeSliders.Length; i++)
         {
             if (i > 1)
             {
-                instrumentToggles[i] = Instantiate(instrumentTogglePrefab, instrumentTogglesContent);
+                instrumentVolumeSliders[i] = Instantiate(instrumentVolumeSliderPrefab, instrumentVolumeSlidersContent);
                 var a = i;
-                sources[i].volume = instrumentToggles[i].isOn ? 1 : 0;
-                instrumentToggles[i].onValueChanged.AddListener(delegate
+                instrumentVolumeSliders[i].onValueChanged.AddListener(delegate
                 {
-                    ToggleInstrument(instrumentToggles[a].isOn, sources[a]);
+                    ChangeInstrumentVolume(instrumentVolumeSliders[a].value, sources[a]);
                 });
-                instrumentToggles[i].GetComponentInChildren<TextMeshProUGUI>().text = sources[i].clip.name;
+                instrumentVolumeSliders[i].GetComponentInChildren<TextMeshProUGUI>().text = sources[i].clip.name;
             }
         }
     }
 
-    private void ToggleInstrument(bool isOn, AudioSource source)
+    //private void ToggleInstrument(bool isOn, AudioSource source)
+    //{
+    //    source.volume = isOn ? 1 : 0;
+    //}
+
+    private void ChangeInstrumentVolume(float newVolume, AudioSource source)
     {
-        source.volume = isOn ? 1 : 0;
+        source.volume = newVolume;
     }
 
     public void TogglePlaying()
@@ -287,19 +281,12 @@ public class DemoUIManager : MonoBehaviour
         isPlaying = !isPlaying;
         if (isPlaying)
         {
-            if (footworks[selectedFootwork].isPlaying)
-            {
-                footworks[selectedFootwork].Unpause();
-            }
-            else
-            {
-                footworks[selectedFootwork].Play();
-            }
+            footworks[selectedFootwork].Play();
             isPlaying = true;
         }
         else
         {
-            footworks[selectedFootwork].Pause();
+            footworks[selectedFootwork].Stop();
             isPlaying = false;
         }
     }
