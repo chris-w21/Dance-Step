@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1223223985, guid: aa81bbec85a3f423193272a7c6154986, type: 3}
+  m_Name: bachata 135 vocals track
+  m_EditorClassIdentifier: 
+  mEventID: bachata 135 vocals track
+  mEventList:
+  - mStartSample: 0
+    mEndSample: 0
+  - mStartSample: 19600
+    mEndSample: 19600
+  - mStartSample: 39200
+    mEndSample: 39200
+  - mStartSample: 58800
+    mEndSample: 58800
+  - mStartSample: 78400
+    mEndSample: 78400
+  - mStartSample: 98000
+    mEndSample: 98000
+  - mStartSample: 117600
+    mEndSample: 117600
+  - mStartSample: 137200
+    mEndSample: 137200
+  - mStartSample: 156800
+    mEndSample: 156800
+  - mStartSample: 176400
+    mEndSample: 176400
+  - mStartSample: 196000
+    mEndSample: 196000
+  - mStartSample: 215600
+    mEndSample: 215600
+  - mStartSample: 235200
+    mEndSample: 235200
+  - mStartSample: 254800
+    mEndSample: 254800
+  - mStartSample: 274400
+    mEndSample: 274400
+  - mStartSample: 294000
+    mEndSample: 294000
+  - mStartSample: 313600
+    mEndSample: 313600
+  - mStartSample: 333200
+    mEndSample: 333200
+  - mStartSample: 352800
+    mEndSample: 352800
+  - mStartSample: 372400
+    mEndSample: 372400
+  - mStartSample: 392000
+    mEndSample: 392000
+  - mStartSample: 411600
+    mEndSample: 411600
+  - mStartSample: 431200
+    mEndSample: 431200
+  - mStartSample: 450800
+    mEndSample: 450800
+  - mStartSample: 470400
+    mEndSample: 470400
+  - mStartSample: 490000
+    mEndSample: 490000
+  - mStartSample: 509600
+    mEndSample: 509600
+  - mStartSample: 529200
+    mEndSample: 529200
+  - mStartSample: 548800
+    mEndSample: 548800
+  - mStartSample: 568400
+    mEndSample: 568400
+  - mStartSample: 588000
+    mEndSample: 588000
+  - mStartSample: 607600
+    mEndSample: 607600
+  _SerializedPayloadTypes: []
+  _ColorPayloads: []
+  _ColorPayloadIdxs: 
+  _CurvePayloads: []
+  _CurvePayloadIdxs: 
+  _FloatPayloads: []
+  _FloatPayloadIdxs: 
+  _GradientPayloads: []
+  _GradientPayloadIdxs: 
+  _IntPayloads: []
+  _IntPayloadIdxs: 
+  _SpectrumPayloads: []
+  _SpectrumPayloadIdxs: 
+  _TextPayloads: []
+  _TextPayloadIdxs: 
