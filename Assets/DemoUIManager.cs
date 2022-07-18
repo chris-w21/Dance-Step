@@ -249,7 +249,6 @@ public class DemoUIManager : MonoBehaviour
         }
 
         AudioSource[] sources = footworks[selectedFootwork].GetComponents<AudioSource>();
-
         instrumentVolumeSliders = new Slider[sources.Length];
         for (int i = 0; i < instrumentVolumeSliders.Length; i++)
         {
